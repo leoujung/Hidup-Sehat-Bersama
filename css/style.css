@@ -357,7 +357,7 @@ h2 {
   line-height: 30px;
 }
 .profile p::before {
-  content: "\93";
+  content: "";
   font-size: 50px;
   position: relative;
   color: #0863dc;
@@ -366,7 +366,7 @@ h2 {
   right: 5px;
 }
 .profile p::after {
-  content: "\94";
+  content: "";
   font-size: 50px;
   position: relative;
   color: #0863dc;
