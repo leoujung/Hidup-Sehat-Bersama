@@ -1,0 +1,292 @@
+/* Hidup Sehat Bersama — desain 2026
+   Satu file CSS untuk semua halaman. Mobile first. */
+
+@font-face { font-family: "Plus Jakarta Sans"; src: url(../fonts/pjs-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url(../fonts/pjs-500.woff2) format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url(../fonts/pjs-700.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url(../fonts/pjs-800.woff2) format("woff2"); font-weight: 800; font-display: swap; }
+
+:root {
+  --ink: #10263b;       /* teks utama, navy tua */
+  --muted: #536477;     /* teks pendukung */
+  --blue: #1e4fa8;      /* biru tutup botol 4Life */
+  --blue-dark: #163c80;
+  --sky: #e9f2fb;       /* latar section lembut */
+  --paper: #ffffff;
+  --line: #d6e2ee;
+  --yolk: #f2b33d;      /* aksen kuning telur */
+  --yolk-soft: #fdf1d6;
+  --wa: #128c4a;        /* tombol WhatsApp (kontras aman untuk teks putih) */
+  --wa-dark: #0e723c;
+
+  --radius: 18px;
+  --wrap: 1120px;
+  --gutter: 20px;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(1.9rem, 4.5vw, 2.6rem);
+  --step-4: clamp(2.3rem, 6.5vw, 3.9rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: var(--blue-dark); }
+:focus-visible { outline: 3px solid var(--yolk); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.6em; }
+h1 { font-size: var(--step-4); font-weight: 800; letter-spacing: -0.035em; }
+h2 { font-size: var(--step-3); font-weight: 800; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+p { margin: 0 0 1em; }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: 72px 0; }
+.section--sky { background: var(--sky); }
+.section-head { max-width: 640px; margin-bottom: 40px; }
+.section-head p { color: var(--muted); font-size: 1.05rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.muted { color: var(--muted); }
+.small { font-size: var(--step--1); }
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 12px 24px;
+  border-radius: 999px; border: 2px solid transparent;
+  font: inherit; font-weight: 700; font-size: 1rem; text-decoration: none;
+  cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn i { font-size: 1.2em; }
+.btn--wa { background: var(--wa); color: #fff; }
+.btn--wa:hover { background: var(--wa-dark); color: #fff; }
+.btn--blue { background: var(--blue); color: #fff; }
+.btn--blue:hover { background: var(--blue-dark); color: #fff; }
+.btn--ghost { border-color: var(--line); color: var(--ink); background: #fff; }
+.btn--ghost:hover { border-color: var(--blue); color: var(--blue); }
+.btn--sm { min-height: 42px; padding: 8px 18px; font-size: .95rem; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; gap: 16px; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); margin-right: auto; }
+.brand-mark {
+  width: 38px; height: 22px; border-radius: 999px; flex: none;
+  background: linear-gradient(90deg, var(--blue) 0 50%, var(--yolk) 50% 100%);
+}
+.brand-name { font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+.brand-name small { display: block; font-weight: 500; font-size: .75rem; color: var(--muted); letter-spacing: 0; }
+.nav { display: none; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 999px; }
+.nav a:hover, .nav a[aria-current="page"] { background: var(--sky); color: var(--blue); }
+.nav-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line);
+  background: #fff; color: var(--ink); font-size: 1.1rem; cursor: pointer;
+}
+.header-cta { display: none; }
+.nav.is-open {
+  display: flex; flex-direction: column; position: absolute; left: 0; right: 0; top: 100%;
+  background: #fff; border-bottom: 1px solid var(--line); padding: 8px var(--gutter) 16px;
+}
+.nav.is-open a { padding: 12px; }
+
+@media (min-width: 900px) {
+  .nav, .nav.is-open { display: flex; flex-direction: row; position: static; padding: 0; border: 0; gap: 4px; }
+  .nav-toggle { display: none; }
+  .header-cta { display: inline-flex; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 40px 0 64px; overflow: hidden; }
+.hero .wrap { display: grid; gap: 36px; align-items: center; }
+.hero h1 { max-width: 13ch; }
+.hero-lead { font-size: 1.15rem; color: var(--muted); max-width: 46ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 24px; }
+.hero-proof { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; margin: 0; list-style: none; font-size: .95rem; color: var(--muted); }
+.hero-proof li { display: flex; align-items: center; gap: 8px; }
+.hero-proof i { color: var(--wa); }
+
+/* Elemen khas: foto dalam bingkai kapsul */
+.capsule { position: relative; justify-self: center; width: min(100%, 520px); }
+.capsule-img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 45%;
+  border-radius: 999px;
+  box-shadow: 0 0 0 10px var(--sky), 0 0 0 11px var(--line);
+}
+.capsule::after {
+  /* separuh kapsul kuning di belakang foto */
+  content: ""; position: absolute; z-index: -1;
+  width: 46%; aspect-ratio: 1 / 1; border-radius: 999px;
+  background: var(--yolk-soft); right: -12%; top: -18%;
+}
+.capsule-badge {
+  position: absolute; left: 8%; bottom: -14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; font-weight: 700; font-size: .9rem;
+  box-shadow: 0 8px 24px rgba(16, 38, 59, .12);
+}
+.capsule-badge i { color: var(--wa); }
+
+@media (min-width: 900px) {
+  .hero { padding: 72px 0 96px; }
+  .hero .wrap { grid-template-columns: 1.1fr .9fr; gap: 56px; }
+  .capsule { width: 100%; max-width: 420px; }
+  .capsule-img { aspect-ratio: 3 / 4; object-position: 52% 50%; }
+  .capsule::after { width: 62%; right: -22%; top: 8%; }
+  .capsule-badge { left: -28px; bottom: 56px; }
+}
+
+/* ---------- Produk unggulan ---------- */
+.feature { display: grid; gap: 32px; align-items: center; }
+.feature-media { background: #fff; border-radius: var(--radius); border: 1px solid var(--line); padding: 24px; justify-self: center; width: min(100%, 360px); }
+.facts { list-style: none; padding: 0; margin: 20px 0 24px; display: grid; gap: 10px; }
+.facts li { display: flex; gap: 12px; align-items: flex-start; }
+.facts i { color: var(--blue); width: 20px; margin-top: 5px; text-align: center; flex: none; }
+.facts .warn i { color: #b7791f; }
+.tag {
+  display: inline-block; font-size: .85rem; font-weight: 700;
+  background: var(--yolk-soft); color: #7a5410; border-radius: 999px; padding: 4px 12px; margin-bottom: 14px;
+}
+@media (min-width: 900px) { .feature { grid-template-columns: 360px 1fr; gap: 64px; } }
+
+/* ---------- Alasan (list, bukan kartu) ---------- */
+.reasons { list-style: none; padding: 0; margin: 0; display: grid; gap: 28px; }
+.reasons li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; }
+.reasons .ico {
+  width: 48px; height: 48px; border-radius: 999px; background: var(--sky); color: var(--blue);
+  display: flex; align-items: center; justify-content: center; font-size: 1.15rem;
+}
+.reasons h3 { margin-bottom: 4px; font-size: 1.1rem; }
+.reasons p { color: var(--muted); margin: 0; }
+@media (min-width: 720px) { .reasons { grid-template-columns: 1fr 1fr; gap: 36px 48px; } }
+
+/* ---------- Langkah (urutan nyata, jadi bernomor) ---------- */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: step; }
+.steps li {
+  counter-increment: step; position: relative;
+  background: #fff; border-radius: var(--radius); padding: 22px 22px 22px 76px; border: 1px solid var(--line);
+}
+.steps li::before {
+  content: counter(step); position: absolute; left: 22px; top: 22px;
+  width: 38px; height: 38px; border-radius: 999px; background: var(--blue); color: #fff;
+  font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+.steps h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.steps p { margin: 0; color: var(--muted); }
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .steps li { padding: 76px 22px 24px; }
+  .steps li::before { top: 22px; }
+}
+.couriers { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 32px; color: var(--muted); font-size: .95rem; }
+.couriers img { height: 56px; width: auto; border-radius: 10px; background: #fff; }
+
+/* ---------- Testimoni ---------- */
+.quotes { display: grid; gap: 20px; }
+.quote { margin: 0; background: #fff; border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); }
+.quote blockquote { margin: 0 0 20px; font-size: 1.1rem; line-height: 1.6; }
+.quote figcaption { display: flex; align-items: center; gap: 14px; }
+.quote img { width: 52px; height: 52px; border-radius: 999px; object-fit: cover; object-position: top; }
+.quote strong { display: block; }
+.video { margin-top: 28px; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--ink); }
+.video iframe { width: 100%; height: 100%; border: 0; }
+@media (min-width: 900px) {
+  .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .testi-grid .video { margin-top: 0; }
+}
+
+/* ---------- Pilihan gabung ---------- */
+.plans { display: grid; gap: 20px; }
+.plan {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+}
+.plan h3 { font-size: 1.35rem; margin-bottom: 2px; }
+.plan .for { color: var(--muted); margin-bottom: 18px; }
+.plan ul { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; flex: 1; align-content: start; }
+.plan li { display: flex; gap: 10px; }
+.plan li i { color: var(--wa); margin-top: 5px; flex: none; }
+.plan .btn { width: 100%; }
+.plan--main { border: 2px solid var(--blue); position: relative; }
+.plan--main .ribbon {
+  position: absolute; top: -14px; left: 28px;
+  background: var(--yolk); color: var(--ink); font-weight: 700; font-size: .85rem;
+  border-radius: 999px; padding: 3px 12px;
+}
+.fineprint { font-size: .85rem; color: var(--muted); margin-top: 24px; max-width: 760px; }
+@media (min-width: 900px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- CTA band ---------- */
+.cta-band { background: var(--blue); color: #fff; border-radius: 28px; padding: 40px 28px; display: grid; gap: 20px; align-items: center; }
+.cta-band h2 { margin-bottom: 6px; }
+.cta-band p { margin: 0; color: #d5e2f7; }
+.cta-band .btn--wa { box-shadow: 0 0 0 4px rgba(255, 255, 255, .18); }
+@media (min-width: 900px) { .cta-band { grid-template-columns: 1fr auto; padding: 48px 56px; } }
+
+/* ---------- Halaman produk ---------- */
+.page-intro { padding: 48px 0 24px; overflow: hidden; }
+.page-intro .wrap { display: grid; gap: 32px; align-items: center; }
+.page-intro p { color: var(--muted); font-size: 1.1rem; max-width: 56ch; }
+.page-intro .capsule-img { aspect-ratio: 16 / 10; }
+@media (min-width: 900px) { .page-intro .wrap { grid-template-columns: 1.1fr .9fr; } .page-intro .capsule-img { aspect-ratio: 16 / 10; } }
+
+.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.product { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.product-img { background: var(--sky); aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; padding: 18px; }
+.product-img img { max-height: 100%; width: auto; mix-blend-mode: multiply; }
+.product-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+.product h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.product .kind { color: var(--muted); font-size: .92rem; margin-bottom: 14px; }
+.product .facts { margin: 0 0 16px; font-size: .92rem; gap: 6px; }
+.product .btn { margin-top: auto; width: 100%; }
+.product--featured { border: 2px solid var(--blue); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: #c4d1de; padding: 64px 0 28px; font-size: .95rem; }
+.site-footer a { color: #fff; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer h3 { color: #fff; font-size: 1rem; margin-bottom: 14px; }
+.footer-grid { display: grid; gap: 36px; }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.footer-grid li i { width: 18px; margin-right: 8px; color: #8fb0d6; }
+.wa-form { display: grid; gap: 10px; }
+.wa-form input {
+  font: inherit; color: var(--ink); background: #fff; border: 0; border-radius: 12px; padding: 12px 14px; min-height: 46px;
+}
+.footer-legal { border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 44px; padding-top: 24px; font-size: .82rem; color: #9fb1c4; }
+.footer-legal p { max-width: 900px; }
+@media (min-width: 900px) { .footer-grid { grid-template-columns: 1.3fr 1fr 1.2fr 1.2fr; gap: 40px; } }
+
+/* ---------- Tombol WhatsApp mengambang ---------- */
+.wa-float {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width: 58px; height: 58px; border-radius: 999px;
+  background: var(--wa); color: #fff; font-size: 30px; text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 24px rgba(16, 38, 59, .28);
+}
+.wa-float:hover { background: var(--wa-dark); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media (min-width: 900px) { .steps--3 { grid-template-columns: repeat(3, 1fr); } }
+.video--narrow { max-width: 760px; margin-top: 36px; }

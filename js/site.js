@@ -32,8 +32,17 @@
     });
   });
 
-  // 3. Lightbox galeri produk (hanya di halaman produk)
-  if (window.baguetteBox && document.querySelector(".cards-gallery")) {
-    window.baguetteBox.run(".cards-gallery", { animation: "slideIn" });
+  // 3. Menu mobile
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") { nav.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); }
+    });
   }
 })();
