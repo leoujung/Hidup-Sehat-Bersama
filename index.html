@@ -1,473 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hidup Sehat Bersama | Mitra Independen 4Life</title>
+    <meta name="description" content="Konsultasi gratis seputar suplemen kesehatan 4Life Transfer Factor®. Produk terdaftar BPOM, pemesanan mudah via WhatsApp atau toko online resmi 4Life." />
+    <link rel="canonical" href="https://leoujung.github.io/Hidup-Sehat-Bersama/" />
+    <meta name="theme-color" content="#1e4fa8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+    <link rel="apple-touch-icon" href="img/favicon.png" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" /> 
-    
+    <!-- Open Graph (preview saat dibagikan di Facebook / WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Hidup Sehat Bersama" />
+    <meta property="og:title" content="Hidup Sehat Bersama | Mitra Independen 4Life" />
+    <meta property="og:description" content="Konsultasi gratis seputar suplemen 4Life Transfer Factor®. Produk terdaftar BPOM, pesan mudah via WhatsApp." />
+    <meta property="og:url" content="https://leoujung.github.io/Hidup-Sehat-Bersama/" />
+    <meta property="og:image" content="https://leoujung.github.io/Hidup-Sehat-Bersama/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Bootstrap CSS 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-      -->
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="css/all.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="css/main.css" />
 
-    <!-- My CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-    <title>Hidup Sehat Bersama</title>
+    <!--
+      TRACKING (aktifkan setelah punya ID):
+      1. Google Analytics 4: ganti G-XXXXXXXXXX lalu hapus tanda komentar.
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+      <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+      2. Meta Pixel: tempel kode base Pixel dari Meta Events Manager di sini.
+      Klik tombol WhatsApp otomatis tercatat (lihat js/site.js).
+    -->
   </head>
 
-  <body id="jumbo" data-spy="scroll" data-target="#navbarResponsive">
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Hidup Sehat Bersama<small>Mitra Independen 4Life</small></span>
+        </a>
+        <nav class="nav" id="nav" aria-label="Menu utama">
+          <a href="tf.html">Produk</a>
+          <a href="#cara-beli">Cara beli</a>
+          <a href="#testimoni">Testimoni</a>
+          <a href="#gabung">Gabung</a>
+        </nav>
+        <a class="btn btn--wa btn--sm header-cta" href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat WhatsApp</a>
+        <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Buka menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </header>
 
-    
-    <!-- Navbar -->
-    <section id="navbar">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="https://wa.me/628111611368?text=Salam%20Sehat%20Salam%20Bugar">Mitra Usaha Resmi 4Life</a>
-        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tf.html">Produk</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#manfaat">Manfaat</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#timeline">Cara Beli</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#testimoni">Testimoni</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pricingtable">Gabung</a>
-              </li>
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="wrap">
+          <div>
+            <h1>Hidup sehat dimulai dari kebiasaan kecil hari ini.</h1>
+            <p class="hero-lead">Konsultasi gratis dengan Mitra Independen 4Life. Kami bantu Anda memilih suplemen 4Life Transfer Factor® yang sesuai kebutuhan.</p>
+            <div class="hero-actions">
+              <a class="btn btn--wa" href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life"><i class="fab fa-whatsapp" aria-hidden="true"></i> Konsultasi gratis</a>
+              <a class="btn btn--ghost" href="tf.html">Lihat produk</a>
+            </div>
+            <ul class="hero-proof">
+              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Produk terdaftar BPOM</li>
+              <li><i class="fas fa-check-circle" aria-hidden="true"></i> Belanja lewat toko resmi 4Life</li>
             </ul>
           </div>
-        </div>
-      </nav>
-    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
-      <ol class="carousel-indicators">
-        <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
-        <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img alt="First slide" class="d-block w-1000" src="img/peneliti.jpeg">
-          <div class="carousel-caption d-md-block">
-            <h1 class="animated bounceInRight" style="animation-delay: 1s">INGAT SEHAT <span>INGAT TRANSFER FACTOR</span></h1>
-            <p class="animated bounceInLeft" style="animation-delay: 2s">Hanya Kesehatan Prima yang mampu wujudkan IMPIAN Anda</p>
-            <p class="animated bounceInRight" style="animation-delay: 3s"><a class="btn btn-info btn-lg" href="tf.html" role="button">More Info</a></p>
+          <div class="capsule">
+            <img class="capsule-img" src="img/hero-keluarga.webp" width="1080" height="608" alt="Siluet keluarga di antara botol 4Life Transfer Factor dan RioVida" fetchpriority="high" />
+            <span class="capsule-badge"><i class="fas fa-comments" aria-hidden="true"></i> Konsultasi gratis via WhatsApp</span>
           </div>
         </div>
-       
-        <div class="carousel-item">
-          <div class="sec">
-          <img alt="Second slide" class="d-block w-1000" src="img/masker.jpeg">
-          <div class="carousel-caption d-md-block">
-            <h1 class="animated zoomIn" style="animation-delay: 1s">Betapa Berharga Kesehatan Anda di Dunia saat ini</h1>
-            <p class="animated fadeInLeft" style="animation-delay: 2s">Daya Tahan Tubuh Prima Kunci Utamanya.</p>
-            <p class="animated zoomIn" style="animation-delay: 3s"><a class="btn btn-info btn-lg" href="tf.html" role="button">More Info</a></p>
-          </div>
-        </div>
-        </div>
-      </div><a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
-    </div>
-  </section>
-    <!-- Akhir Navbar -->
-
-    <!-- Home -->
-      <section id="home" class="home">
-        <div class="container">
-          <div class="row pt-5"> 
-            <div class="col-lg-12 pt-5 justify-content-center">
-              <div id="news-home" class="home">
-                <div class="news-grid text-center">
-                  <div class="news-grid-image"><img src="img/balance.jpg" class="w-50" alt="tff">
-                  </div>
-                    <div class="news-grid-txt pt-5">
-                      <h2>RAHASIA MENJAGA KESEHATAN YANG SEIMBANG JUTAAN ORANG </h2>
-                    <div class="news-grid-txt-1 pt-5">
-                        <p> Masa depan kita tergantung dengan apa yang kita lakukan saat ini. 
-                        Dengan berbagai ancaman kesehatan di dunia saat ini, 
-                        tubuh kita dituntut untuk selalu prima dan daya tahan tubuh adalah kunci utamanya.</p>
-                    </div>
-                    <div class="news-grid-txt-2 pt-4">
-                        <p>Agar daya tahan tubuh optimal dan seimbang, asupan gizi makanan harian saja tidak cukup.
-                         Bila Anda memiliki sistem Imun yang cerdas dan waspada, Anda dapat melawan ancaman yang Anda hadapi setiap hari dan menjalani hidup terbaik Anda. Itulah sebabnya jutaan orang di seluruh dunia memilih untuk mendukung sistem Imun mereka dengan <b>produk 4Life Transfer Factor!</b>
-                        </p>
-                    </div>
-                    <div class="row pt-5 justify-content-center">
-                      <a href="tf.html" class="btn btn-primary tombol">Klik Info Detail</a>
-                    </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#add8e6" fill-opacity="1" d="M0,96L80,117.3C160,139,320,181,480,165.3C640,149,800,75,960,48C1120,21,1280,43,1360,53.3L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-        </svg>
       </section>
-    <!-- Home -->
 
-    <!-- Manfaat -->
-        <section id="manfaat" class="manfaat">
-          <div class="container">
-            <h2 class="text-center pt-3">APA SAJA SIH MANFAATNYA?</h2>
-            <div class="row pt-5 text-center">
-              <div class="col-sm-4">
-                <div class="box">
-                  <img src="img/box.png" class="boxuser">
-                  <h3>Daya Tahan Tubuh</h3>
-                  <p class="boxtext">Produk suplemen 4Life dapat membantu regenerasi sel dan turut memperkuat daya tahan tubuh Anda.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box">
-                  <img src="img/box.png" class="boxuser">
-                  <h3>Worldwide User</h3>
-                  <p class="boxtext">Transfer Factor telah digunakan jutaan orang di 50 negara dan telah memiliki cabang bisnis di berbagai kota besar di Indonesia.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box">
-                  <img src="img/box.png" class="boxuser">
-                  <h3>Teruji Klinis</h3>
-                  <p class="boxtext">Teruji klinis dengan laboratorium kami dan produk 4Life merupakan hasil research selama puluhan tahun oleh pakar suplemen.</p>
-                </div>
-              </div>
-            </div>
-            <div class="row pt-5 mb-3 text-center">
-              <div class="col-sm-4">
-                <div class="box">
-                  <img src="img/box.png" class="boxuser">
-                  <h3>Alami</h3>
-                  <p class="boxtext">Diproduksi secara alami dan menggunakan bahan-bahan organik, Aman dikonsumsi oleh siapa saja.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box">
-                  <img src="img/box.png" class="boxuser">
-                  <h3>Value for Money</h3>
-                  <p class="boxtext">Dapatkan perubahan signifikan pada kehidupan Anda dengan mengkonsumsi suplemen 4Life secara rutin.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box">
-                  <img src="img/box.png" class="boxuser">
-                  <h3>Community</h3>
-                  <p class="boxtext">Didukung komunitas yang kuat dan jaringan yang tersebar luas. Kami selalu siap membantu Anda.</p>
-                </div>
-              </div>
-            </div>
-            <div class="row pt-5 justify-content-center">
-              <a href="https://wa.me/6281387071450?text=Saya%20tertarik%20dan%20mau%20beli" class="fab fa-whatsapp btn btn-primary tombol"> Chat Melalui Whatsapp</a>
-            </div>
+      <!-- Produk unggulan -->
+      <section class="section section--sky" id="unggulan">
+        <div class="wrap feature">
+          <div class="feature-media">
+            <img src="img/2.webp" width="350" height="350" alt="Botol 4Life Transfer Factor Plus Tri-Factor Formula" loading="lazy" />
           </div>
-        </section>
-    <!-- Akhir Manfaat -->
-    
-    <!-- Cara Beli - Timeline -->
-      <div id="timeline" class="container">
-      <div class="container pt-5">
-        <h2 class="pb-5 pt-5 text-center mb-4 display-5">BAGAIMANA CARA MENDAPATKAN PRODUK?</h2>
-        <!-- First Content Section-->
-        <div class="row align-items-center connecting-lines d-flex">
-          <div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
-            <div class="circle font-weight-bold"><i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-6">
-            <i class="fas fa-shopping-cart"></i>
-            <h5 class="line">PEMESANAN</h5>
-            <p>Melakukan konsultasi (gratis) dan pemesanan melalui WA.</p>
-          </div>
-        </div>
-        <!-- Path Line -->
-        <div class="row timeline">
-          <div class="col-2">
-            <div class="corner top-right"></div>
-          </div>
-          <div class="col-8">
-            <hr/>
-          </div>
-          <div class="col-2">
-            <div class="corner left-bottom"></div>
-          </div>
-        </div>
-        <!-- Second Content Section-->
-        <div class="row align-items-center justify-content-end connecting-lines d-flex">
-          <div class="col-6 text-right">
-            <i class="fas fa-money-bill-wave"></i>
-            <h5 class="line">PEMBAYARAN</h5>
-            <p>Melakukan pembayaran via transfer dan mengirimkan bukti transfer.</p>
-          </div>
-          <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-            <div class="circle font-weight-bold"><i class="fa fa-check"></i></div>
-          </div>
-        </div>
-        <!-- Path Line -->
-        <div class="row timeline">
-          <div class="col-2">
-            <div class="corner right-bottom"></div>
-          </div>
-          <div class="col-8">
-            <hr/>
-          </div>
-          <div class="col-2">
-            <div class="corner top-left"></div>
-          </div>
-        </div>
-        <!-- Third Content Section -->
-        <div class="row align-items-center connecting-lines d-flex">
-          <div class="col-2 text-center top d-inline-flex justify-content-center align-items-center">
-            <div class="circle font-weight-bold"><i class="fa fa-check"></i></div>
-          </div>
-          <div class="col-6">
-            <i class="fas fa-truck-loading"></i>
-            <h5 class="line">PENGIRIMAN</h5>
-            <p>Produk sudah siap dikirimkan dengan kurir pilihan.</p>
-          </div>
-        </div>
-        <!-- Path Line -->
-        <div class="row timeline">
-          <div class="col-2">
-            <div class="corner top-right"></div>
-          </div>
-          <div class="col-8">
-            <hr/>
-          </div>
-          <div class="col-2">
-            <div class="corner left-bottom"></div>
-          </div>
-        </div>
-        <!-- Second Content Section-->
-        <div class="row align-items-center justify-content-end connecting-lines d-flex">
-          <div class="col-6 text-right">
-            <i class="fas fa-heart"></i> 
-            <h5 class="line">BARANG DITERIMA</h5>
-            <p>Produk diterima customer dan segera siap digunakan.</p>
-          </div>
-          <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-            <div class="circle font-weight-bold"><i class="fa fa-check"></i></div>
-          </div>
-        </div>
-        <div class="row pt-5 justify-content-center">
-          <a href="https://wa.me/6281387071450?text=Saya%20beli%20suplemen%20transfer%20factor" class="fab fa-whatsapp btn btn-primary tombol"> Pesan Melalui Whatsapp</a>
-        </div>
-        <div class="row pt-5">
-          <div class="col-3"><img src="img/gojek_logo.png" class="d-block w-50" alt="tff"></div>
-          <div class="col-3"><img src="img/grablogo.png" class="d-block w-50" alt="tfplus"></div>
-          <div class="col-3"><img src="img/logistik.png" class="d-block w-50" alt="trio"></div>
-          <div class="col-3"><img src="img/jne.png" class="d-block w-50" alt="trio"></div>
-        </div>
-      </div>
-    <!--end timeline -->
-    <!-- Testimoni -->
-      <div class="container pt-5">
-        <h2 id="testimoni" class="text-center pb-3 pt-5 display-5">TESTIMONIAL CUSTOMER</h2>
-          <div class="row pt-5">
-            <div class="col-md-6 mb-5">
-              <div class="profile">
-                <img src="img/mariana.jpg" class="user">
-                  <p>Saya telah menggunakan produk 4Life sudah lebih dari 10 tahun dan sampai hari ini rutin menjadi pelanggan untuk mendukung kesehatan seluruh keluarga.
-                  </p>
-                  <h3>Mariana ~ <span>Pengusaha Kuliner</span></h3>
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-5">
-              <div class="profile">
-                <img src="img/yoke.jpg" class="user">
-                  <p>Produk 4Life untuk perawatan kesehatan dan kebugaran saya dan keluarga di setiap kondisi dan musim, 
-                     selalu tersedia di rumah sebagai kebutuhan penting menjaga daya tahan tubuh.</p>
-                  <h3>Yoke ~ <span>Konsultan Pajak</span></h3>
-              </div>
-            </div>
-
-          </div>
-          <div class="row text-center">
-            <div class="col">
-              <div class="col">
-                <div class="videoWrapper">
-                <iframe width="410" height="315" src="https://www.youtube.com/embed/WEbpYsqJzvE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-  <!-- End Testimoni -->
-  <!-- Pricingtable -->
-<section id="pricingtable" class="pricingtable">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="pricingtable">
-          <div class="title"><h3>NEW</h3>
-            <P class="isi">Menjadi bagian dari 4life</P>
-            <span class="price-value">
-              MITRA USAHA <span class="month"></span>
-            </span>
-          </div>
-          <ul class="pricing-content">
-            <li>PRODUCT</li>
-            <li>CASHBACK</li>
-            <li>REWARD + PASIF INCOME</li>
-            <li>FREE PRODUCT</li>
-          </ul>
-          <a href="https://wa.me/6281387071450?text=Saya%20mau%20info%20menjadi%20Mitra%20Usaha" class="pricingtable-signup">MITRA USAHA</a>
-        </div>
-      </div>
-        <div class="col-md-4">
-          <div class="pricingtable orange">
-            <div class="title"><h3>POPULER</h3>
-              <P class="isi">Terdaftar secara resmi</P>
-              <span class="price-value">
-              MEMBER <span class="month"></span>
-              </span>
-            </div>
-            <ul class="pricing-content">
-              <li>PRODUCT</li>
-              <li>CASHBACK</li>
-              <li>REWARD</li>
-              <li>FREE PRODUCT</li>
+          <div>
+            <span class="tag">Produk unggulan</span>
+            <h2>4Life Transfer Factor® Plus Tri&#8209;Factor™ Formula</h2>
+            <p>Suplemen kesehatan yang membantu memelihara kesehatan. Mengandung 4Life Transfer Factor® dari kuning telur, dikombinasikan dengan ekstrak jamur shiitake, maitake, cordyceps, <i>Agaricus blazei</i>, zinc, dan bahan lainnya.</p>
+            <ul class="facts">
+              <li><i class="fas fa-box" aria-hidden="true"></i> Botol isi 90 kapsul</li>
+              <li><i class="fas fa-clipboard-check" aria-hidden="true"></i> <span>BPOM SI253073521. <a href="https://cekbpom.pom.go.id/all-produk?query=tri+factor+formula+plus" target="_blank" rel="noopener">Cek di situs BPOM</a></span></li>
+              <li class="warn"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Mengandung telur dan susu. Gunakan sesuai aturan pakai pada label.</li>
             </ul>
-            <a href="https://wa.me/6281387071450?text=Saya%20mau%20info%20menjadi%20Member%204Life" class="pricingtable-signup">BELI + DAFTAR</a>
+            <a class="btn btn--blue" href="tf.html">Lihat semua produk</a>
           </div>
         </div>
-          <div class="col-md-4">
-            <div class="pricingtable pink">
-              <div class="title"><h3>ORDINARY</h3>
-                <P class="isi">Hanya membeli produk</P>
-                <span class="price-value">
-                  PEMBELI <span class="month"></span>
-                </span>
-              </div>
-              <ul class="pricing-content">
-                <li>PRODUCT</li>
-                <li>NO CASH BACK</li>
-                <li>NO REWARD</li>
-                <li>NO FREE PRODUCT</li>
-              </ul>
-              <a href="https://indonesia.4life.com/leogito/shop" class="pricingtable-signup">BELI</a>
+      </section>
+
+      <!-- Alasan -->
+      <section class="section" id="kenapa">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Kenapa belanja di sini</h2>
+            <p>Kami bukan toko yang cuma kirim barang. Anda didampingi dari memilih produk sampai pemakaian rutin.</p>
+          </div>
+          <ul class="reasons">
+            <li>
+              <span class="ico"><i class="fas fa-comments" aria-hidden="true"></i></span>
+              <div><h3>Konsultasi dulu, gratis</h3><p>Ceritakan kebutuhan dan kebiasaan Anda lewat WhatsApp. Kami bantu pilih produk yang cocok, tanpa paksaan.</p></div>
+            </li>
+            <li>
+              <span class="ico"><i class="fas fa-clipboard-check" aria-hidden="true"></i></span>
+              <div><h3>Terdaftar BPOM</h3><p>Setiap produk punya nomor izin edar yang bisa Anda cek sendiri di <a href="https://cekbpom.pom.go.id" target="_blank" rel="noopener">cekbpom.pom.go.id</a>.</p></div>
+            </li>
+            <li>
+              <span class="ico"><i class="fas fa-store" aria-hidden="true"></i></span>
+              <div><h3>Toko online resmi 4Life</h3><p>Pembelian tercatat langsung di sistem 4Life Indonesia, jadi produk dikirim dari sumber resmi.</p></div>
+            </li>
+            <li>
+              <span class="ico"><i class="fas fa-gift" aria-hidden="true"></i></span>
+              <div><h3>Hemat dengan Program Loyalitas</h3><p>Kumpulkan poin 15% dari setiap order bulanan dan tukar dengan produk gratis.</p></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Cara beli -->
+      <section class="section section--sky" id="cara-beli">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Cara mendapatkan produk</h2>
+            <p>Empat langkah, semua bisa dari HP.</p>
+          </div>
+          <ol class="steps">
+            <li><h3>Konsultasi &amp; pesan</h3><p>Chat via WhatsApp, atau belanja langsung di <a href="https://indonesia.4life.com/leogito/shop/all" target="_blank" rel="noopener">toko online resmi</a>.</p></li>
+            <li><h3>Bayar</h3><p>Lakukan pembayaran sesuai instruksi, lalu kirim bukti pembayaran.</p></li>
+            <li><h3>Dikirim</h3><p>Produk dikirim dengan kurir pilihan Anda.</p></li>
+            <li><h3>Diterima</h3><p>Produk siap digunakan sesuai aturan pakai pada label.</p></li>
+          </ol>
+          <div class="couriers">
+            <span>Dikirim lewat</span>
+            <img src="img/gojek_logo.webp" width="240" height="240" alt="Gojek" loading="lazy" />
+            <img src="img/grablogo.webp" width="240" height="240" alt="Grab" loading="lazy" />
+            <img src="img/logistik.webp" width="200" height="200" alt="First Logistics" loading="lazy" />
+            <img src="img/jne.webp" width="240" height="240" alt="JNE" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimoni -->
+      <section class="section" id="testimoni">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Kata pelanggan kami</h2>
+          </div>
+          <div class="testi-grid">
+            <div class="quotes">
+              <figure class="quote">
+                <blockquote>“Saya telah menggunakan produk 4Life lebih dari 10 tahun dan sampai hari ini rutin menjadi pelanggan untuk mendukung kesehatan seluruh keluarga.”</blockquote>
+                <figcaption><img src="img/mariana.webp" width="400" height="533" alt="" loading="lazy" /><span><strong>Mariana</strong><span class="muted small">Pengusaha kuliner</span></span></figcaption>
+              </figure>
+              <figure class="quote">
+                <blockquote>“Produk 4Life selalu tersedia di rumah untuk perawatan kesehatan dan kebugaran saya dan keluarga di setiap musim.”</blockquote>
+                <figcaption><img src="img/yoke.webp" width="400" height="445" alt="" loading="lazy" /><span><strong>Yoke</strong><span class="muted small">Konsultan pajak</span></span></figcaption>
+              </figure>
+              <p class="muted small">Pengalaman setiap orang dapat berbeda.</p>
+            </div>
+            <div class="video">
+              <iframe src="https://www.youtube.com/embed/WEbpYsqJzvE" title="Video testimoni 4Life" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
         </div>
-        <div class="giliran">
-          <h4 id="rusa" class="text-center pt-3">TUNGGU APALAGI!</h4>
-          <h1 id="rusa" class="text-center pt-3">JUTAAN ORANG TELAH MENIKMATI MANFAAT SUPLEMEN INI</h2>
-          <h2 id="rusa" class="text-center pt-3">SEKARANG GILIRAN ANDA!</h2>     
-        <div class="row pt-5 justify-content-center">
-            <a href="https://wa.me/628111611368?text=Saya%20Tertarik" class="fab fa-whatsapp btn btn-primary tombol"> Saya Mau Supplemen ini</a>
+      </section>
+
+      <!-- Gabung -->
+      <section class="section section--sky" id="gabung">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Pilih cara bergabung</h2>
+            <p>Mau beli sekali, rutin tiap bulan, atau sekalian berbisnis. Semua bisa dimulai dari konsultasi.</p>
+          </div>
+          <div class="plans">
+            <div class="plan">
+              <h3>Pembeli</h3>
+              <p class="for">Tanpa pendaftaran</p>
+              <ul>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Belanja di toko online resmi 4Life</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Bayar dan kirim langsung dari 4Life</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Konsultasi produk gratis</li>
+              </ul>
+              <a class="btn btn--ghost" href="https://indonesia.4life.com/leogito/shop/all" target="_blank" rel="noopener">Belanja sekarang</a>
+            </div>
+            <div class="plan plan--main">
+              <span class="ribbon">Paling hemat</span>
+              <h3>Member Loyalitas</h3>
+              <p class="for">Gratis daftar</p>
+              <ul>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Produk dikirim otomatis tiap bulan</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Poin 15% dari setiap order, tukar dengan produk gratis</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Bebas ubah produk, tunda, atau berhenti kapan saja</li>
+              </ul>
+              <a class="btn btn--blue" href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20info%20Program%20Loyalitas%204Life">Daftar Program Loyalitas</a>
+            </div>
+            <div class="plan">
+              <h3>Mitra Usaha</h3>
+              <p class="for">Untuk yang ingin berbisnis</p>
+              <ul>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Semua keuntungan member</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Peluang penghasilan dari penjualan dan pengembangan tim sesuai Rencana Kompensasi 4Life</li>
+                <li><i class="fas fa-check" aria-hidden="true"></i> Pelatihan dan pendampingan dari tim</li>
+              </ul>
+              <a class="btn btn--ghost" href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20info%20peluang%20bisnis%204Life">Info peluang bisnis</a>
+            </div>
+          </div>
+          <p class="fineprint">Penghasilan sebagai Mitra Usaha tidak dijamin dan bergantung pada usaha, waktu, dan kemampuan masing-masing. Ketentuan program mengacu pada informasi resmi 4Life Indonesia (<a href="https://indonesia.4life.com/corp/page/26/LoyaltyProgram" target="_blank" rel="noopener">Program Loyalitas</a>).</p>
         </div>
-          
+      </section>
+
+      <!-- CTA -->
+      <section class="section">
+        <div class="wrap">
+          <div class="cta-band">
+            <div>
+              <h2>Masih ragu? Tanya dulu, gratis.</h2>
+              <p>Kami balas di WhatsApp dan bantu pilih produk yang sesuai kebutuhan Anda.</p>
+            </div>
+            <a class="btn btn--wa" href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat sekarang</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <h3>Hidup Sehat Bersama</h3>
+            <p>Website ini dikelola oleh Mitra Independen 4Life dan bukan situs resmi PT 4Life Indonesia Trading. Kami bagian dari komunitas pendukung Winners Academy.</p>
+          </div>
+          <div>
+            <h3>Tautan</h3>
+            <ul>
+              <li><a href="tf.html">Produk</a></li>
+              <li><a href="https://indonesia.4life.com/leogito/shop/all" target="_blank" rel="noopener">Toko online resmi</a></li>
+              <li><a href="https://indonesia.4life.com/corp/page/26/LoyaltyProgram" target="_blank" rel="noopener">Program Loyalitas</a></li>
+              <li><a href="https://cekbpom.pom.go.id" target="_blank" rel="noopener">Cek BPOM</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Hubungi kami</h3>
+            <ul>
+              <li><a href="https://wa.me/628111611368"><i class="fab fa-whatsapp" aria-hidden="true"></i>0811-1611-368</a></li>
+              <li><a href="tel:+628111611368"><i class="fas fa-phone" aria-hidden="true"></i>+62 811-1611-368</a></li>
+              <li><a href="mailto:bsilejung@gmail.com"><i class="far fa-envelope" aria-hidden="true"></i>bsilejung@gmail.com</a></li>
+              <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Cyber+2+Building+Jakarta" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Cyber 2 Building, Jakarta</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Kirim pesan</h3>
+            <form class="wa-form" data-wa="628111611368">
+              <label class="sr-only" for="wa-nama">Nama</label>
+              <input id="wa-nama" name="nama" type="text" placeholder="Nama Anda" autocomplete="name" required />
+              <label class="sr-only" for="wa-pesan">Pesan</label>
+              <input id="wa-pesan" name="pesan" type="text" placeholder="Pertanyaan Anda" required />
+              <button class="btn btn--wa" type="submit"><i class="fab fa-whatsapp" aria-hidden="true"></i> Kirim via WhatsApp</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <p>Produk suplemen kesehatan bukan obat dan tidak dimaksudkan untuk mendiagnosis, mengobati, menyembuhkan, atau mencegah penyakit. Konsultasikan dengan dokter jika Anda sedang hamil, menyusui, atau memiliki kondisi medis tertentu. 4Life® dan Transfer Factor® adalah merek dagang milik 4Life Trademarks, LLC.</p>
+          <p>&copy; 2026 Hidup Sehat Bersama</p>
         </div>
       </div>
-    </section>
-  <!-- end pricingtable -->
-  <!-- Footer -->
-  <footer>
-    <div id="footer-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <div class="single-footer">
-              <h3>About Us</h3>
-              <p>Website ini merupakan website resmi dari Mitra Usaha 4Life Indonesia yang berada bagian dari support sistem Winners Academy sebagai media promosi dan di awasi oleh 4Life.</p>
-              <p>Winners Academy adalah support sistem pertama di Indonesia yang membantu para mitra bisnisnya dalam membangun bisnis melalui tools promosi digital tercanggih dan terlengkap.</p>
-              <div class="d-inline p-2 bg-dark text-white"><a href=""><i class="fa fa-facebook"></i></a></div>
-              <div class="d-inline p-2 bg-dark text-white"><a href=""><i class="fa fa-linkedin"></i></a></div>
-              <div class="d-inline p-2 bg-dark text-white"><a href=""><i class="fa fa-youtube"></i></a></div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="single-footer">
-              <h3>Support</h3>
-                <ul class="link-area">
-                  <li><a href="#"><i class="fa fa-long-arrow-right"></i>Product</a></li>
-                  <li><a href="#"><i class="fa fa-long-arrow-right"></i>Policies</a></li>
-                  <li><a href="#"><i class="fa fa-long-arrow-right"></i>Careers</a></li>
-                  <li><a href="#"><i class="fa fa-long-arrow-right"></i>Sitemap</a></li>
-                </ul>
-              </div>
-            </div>
+    </footer>
 
-          <div class="col-md-3 col-sm-6">
-            <div class="single-footer">
-              <h3>Hubungi Kita</h3>
-                <ul class="link-area">
-                  <li><a href="#"><i class="fa fa-phone"></i>+6281387071450</a></li>
-                  <li><a href="#"><i class="fa fa-envelope-o"></i> bsilejung@gmail.com</a></li>
-                  <li><a href="#"><i class="fa fa-map"></i>cyber 2 building - Jakarta</a></li>
-                  <li><a href="#"><i class="fa fa-globe"></i>https://bit.ly/TransImunSehat</a></li>
-                </ul>
-              </div>
-            </div>
+    <a href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" class="wa-float" aria-label="Chat via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 
-          <div class="col-md-3 col-sm-6">
-            <div class="single-footer">
-              <h3>Terima Pesan</h3>
-              <form action="#">
-                <ul class="link-area list-inline">
-                  <li>
-                <input class="email d-inline p-2" type="text" placeholder="Email" required="masukan email">
-              </li>
-              <li>
-                <input class="isi d-inline p-2" type="text" placeholder="Ketik Pesan">
-              </li>
-              <li>
-                <input class="btn" type="button" value="Send">
-              </li>
-              </ul>
-              </form>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="copyright-area text-center">
-                <p>Copyright with <i class="fas fa-heart"></i> 2024 by Channel Winners Power. All Rights Reserved.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-</footer>
-<!-- end footer -->
-
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-
-    <!-- Optional JavaScript 
-    jQuery first, then Popper.js, then Bootstrap JS 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-     -->
+    <script src="js/site.js"></script>
   </body>
 </html>
