@@ -290,4 +290,3 @@ p { margin: 0 0 1em; }
 }
 @media (min-width: 900px) { .steps--3 { grid-template-columns: repeat(3, 1fr); } }
 .video--narrow { max-width: 760px; margin-top: 36px; }
-.product-img--empty { color: var(--blue); font-size: 64px; opacity: .55; }
