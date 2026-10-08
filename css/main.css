@@ -147,10 +147,10 @@ p { margin: 0 0 1em; }
 @media (min-width: 900px) {
   .hero { padding: 72px 0 96px; }
   .hero .wrap { grid-template-columns: 1.1fr .9fr; gap: 56px; }
-  .capsule { width: 100%; max-width: 420px; }
-  .capsule-img { aspect-ratio: 3 / 4; object-position: 52% 50%; }
+  .capsule { width: 100%; max-width: 540px; }
+  .capsule-img { aspect-ratio: 4 / 3; object-position: 60% 50%; }
   .capsule::after { width: 62%; right: -22%; top: 8%; }
-  .capsule-badge { left: -28px; bottom: 56px; }
+  .capsule-badge { left: -20px; bottom: -10px; }
 }
 
 /* ---------- Produk unggulan ---------- */
