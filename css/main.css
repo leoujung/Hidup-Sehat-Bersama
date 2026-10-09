@@ -285,6 +285,8 @@ p { margin: 0 0 1em; }
 .page-intro { padding: 48px 0 24px; overflow: hidden; }
 .page-intro .wrap { display: grid; gap: 32px; align-items: center; }
 .page-intro p { color: var(--muted); font-size: 1.1rem; max-width: 56ch; }
+.page-intro .hero-proof { margin-top: 18px; }
+.page-intro .halal-note { font-size: .95rem; margin: 10px 0 0; }
 .page-intro .capsule-img { aspect-ratio: 16 / 10; }
 @media (min-width: 900px) { .page-intro .wrap { grid-template-columns: 1.1fr .9fr; } .page-intro .capsule-img { aspect-ratio: 16 / 10; } }
 
