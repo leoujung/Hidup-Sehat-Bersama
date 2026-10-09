@@ -234,12 +234,42 @@
       <!-- CTA -->
       <section class="section">
         <div class="wrap">
-          <div class="cta-band">
-            <div>
+          <div class="cta-band" id="konsultasi">
+            <div class="cta-copy">
               <h2>Masih ragu? Tanya dulu, gratis.</h2>
-              <p>Kami balas di WhatsApp dan bantu pilih produk yang sesuai kebutuhan Anda.</p>
+              <p>Tinggalkan nama dan nomor WhatsApp Anda. Kami hubungi Anda dan bantu pilih produk yang sesuai kebutuhan.</p>
+              <p class="cta-direct">Lebih suka chat sendiri? <a href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat langsung di WhatsApp</a></p>
             </div>
-            <a class="btn btn--wa" href="https://wa.me/628111611368?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat sekarang</a>
+            <form class="lead-form" data-endpoint="https://n8n-n0ft.srv1964287.hstgr.cloud/webhook/ingatsehat-lead" data-wa="628111611368" novalidate>
+              <div class="lead-field">
+                <label for="lead-nama">Nama</label>
+                <input id="lead-nama" name="nama" type="text" autocomplete="name" maxlength="80" placeholder="Nama Anda" required />
+              </div>
+              <div class="lead-field">
+                <label for="lead-wa">Nomor WhatsApp</label>
+                <input id="lead-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="08xx-xxxx-xxxx" required />
+              </div>
+              <fieldset class="lead-field">
+                <legend>Saya tertarik untuk</legend>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="minat" value="tanya" checked /><span>Konsultasi dulu</span></label>
+                  <label class="chip"><input type="radio" name="minat" value="beli" /><span>Beli produk</span></label>
+                  <label class="chip"><input type="radio" name="minat" value="member" /><span>Member Loyalitas</span></label>
+                  <label class="chip"><input type="radio" name="minat" value="mitra" /><span>Peluang bisnis</span></label>
+                </div>
+              </fieldset>
+              <div class="lead-field">
+                <label for="lead-pesan">Pertanyaan <span class="opt">(opsional)</span></label>
+                <textarea id="lead-pesan" name="pesan" rows="2" maxlength="500" placeholder="Contoh: produk apa yang cocok untuk orang tua?"></textarea>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="lead-website">Website</label>
+                <input id="lead-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <button class="btn btn--wa" type="submit"><i class="fas fa-paper-plane" aria-hidden="true"></i> Kirim, hubungi saya</button>
+              <p class="lead-consent">Dengan mengirim, Anda setuju dihubungi lewat WhatsApp. Data hanya dipakai untuk membalas Anda dan tidak kami jual.</p>
+              <p class="lead-status" role="status" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </section>
@@ -272,19 +302,14 @@
             </ul>
           </div>
           <div>
-            <h3>Kirim pesan</h3>
-            <form class="wa-form" data-wa="628111611368">
-              <label class="sr-only" for="wa-nama">Nama</label>
-              <input id="wa-nama" name="nama" type="text" placeholder="Nama Anda" autocomplete="name" required />
-              <label class="sr-only" for="wa-pesan">Pesan</label>
-              <input id="wa-pesan" name="pesan" type="text" placeholder="Pertanyaan Anda" required />
-              <button class="btn btn--wa" type="submit"><i class="fab fa-whatsapp" aria-hidden="true"></i> Kirim via WhatsApp</button>
-            </form>
+            <h3>Konsultasi gratis</h3>
+            <p>Isi nama dan nomor WhatsApp, kami yang menghubungi Anda.</p>
+            <a class="btn btn--wa btn--sm" href="#konsultasi"><i class="fas fa-pen" aria-hidden="true"></i> Isi formulir</a>
           </div>
         </div>
         <div class="footer-legal">
           <p>Produk suplemen kesehatan bukan obat dan tidak dimaksudkan untuk mendiagnosis, mengobati, menyembuhkan, atau mencegah penyakit. Konsultasikan dengan dokter jika Anda sedang hamil, menyusui, atau memiliki kondisi medis tertentu. 4Life® dan Transfer Factor® adalah merek dagang milik 4Life Trademarks, LLC.</p>
-          <p>Website ini menggunakan cookie dari Google Analytics untuk memahami jumlah dan asal pengunjung secara anonim. Kami tidak menjual data Anda.</p>
+          <p>Website ini menggunakan cookie dari Google Analytics untuk memahami jumlah dan asal pengunjung secara anonim. Nama dan nomor WhatsApp yang Anda kirim lewat formulir hanya dipakai untuk menghubungi Anda. Kami tidak menjual data Anda.</p>
           <p>&copy; 2026 Ingat Sehat</p>
         </div>
       </div>
