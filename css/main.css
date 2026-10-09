@@ -195,8 +195,6 @@ p { margin: 0 0 1em; }
   .steps li { padding: 76px 22px 24px; }
   .steps li::before { top: 22px; }
 }
-.couriers { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 32px; color: var(--muted); font-size: .95rem; }
-.couriers img { height: 56px; width: auto; border-radius: 10px; background: #fff; }
 
 /* ---------- Testimoni ---------- */
 .quotes { display: grid; gap: 20px; }
