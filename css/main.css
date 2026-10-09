@@ -297,3 +297,4 @@ p { margin: 0 0 1em; }
 .lead-muted { color: var(--muted); font-size: 1.1rem; max-width: 46ch; margin-bottom: 24px; }
 @media (min-width: 900px) { .edu { grid-template-columns: .9fr 1.1fr; gap: 56px; } }
 .video-title { margin-top: 48px; margin-bottom: 0; }
+.edu-actions { display: flex; flex-wrap: wrap; gap: 12px; }
