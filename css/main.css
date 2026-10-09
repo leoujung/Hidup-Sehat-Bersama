@@ -236,9 +236,50 @@ p { margin: 0 0 1em; }
 /* ---------- CTA band ---------- */
 .cta-band { background: var(--blue); color: #fff; border-radius: 28px; padding: 40px 28px; display: grid; gap: 20px; align-items: center; }
 .cta-band h2 { margin-bottom: 6px; }
-.cta-band p { margin: 0; color: #d5e2f7; }
+.cta-copy p { margin: 0; color: #d5e2f7; }
 .cta-band .btn--wa { box-shadow: 0 0 0 4px rgba(255, 255, 255, .18); }
-@media (min-width: 900px) { .cta-band { grid-template-columns: 1fr auto; padding: 48px 56px; } }
+.cta-copy .cta-direct { margin-top: 16px; font-size: .95rem; }
+.cta-direct a { color: #fff; font-weight: 700; text-underline-offset: 3px; white-space: nowrap; }
+@media (min-width: 900px) { .cta-band { grid-template-columns: 1fr 1.05fr; gap: 48px; padding: 48px 56px; } }
+
+/* ---------- Formulir lead ---------- */
+.lead-form, .lead-done {
+  background: #fff; color: var(--ink); border-radius: var(--radius);
+  padding: 24px; display: grid; gap: 16px; box-shadow: 0 18px 40px rgba(6, 22, 50, .25);
+}
+.lead-field { display: grid; gap: 6px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.lead-field > label, .lead-field legend { font-weight: 700; font-size: .95rem; padding: 0; }
+.lead-field .opt { font-weight: 500; color: var(--muted); }
+.lead-form input[type="text"], .lead-form input[type="tel"], .lead-form textarea {
+  font: inherit; color: var(--ink); background: #fff; width: 100%;
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px;
+}
+.lead-form textarea { resize: vertical; min-height: 72px; }
+.lead-form input:focus, .lead-form textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(30, 79, 168, .18); }
+.lead-form [aria-invalid="true"] { border-color: #c0392b; }
+.field-error { color: #b42318; font-size: .85rem; margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.chip { position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 8px 14px;
+  border: 1.5px solid var(--line); border-radius: 999px; font-size: .92rem; font-weight: 500;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.chip:hover span { border-color: var(--blue); }
+.chip input:checked + span { background: var(--sky); border-color: var(--blue); color: var(--blue); font-weight: 700; }
+.chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(30, 79, 168, .25); }
+.lead-form .btn { width: 100%; box-shadow: none; }
+.lead-form .btn[disabled] { opacity: .7; cursor: wait; }
+.lead-consent { margin: -4px 0 0; font-size: .8rem; color: var(--muted); }
+.lead-status { margin: 0; font-weight: 500; color: var(--ink); }
+.lead-status:empty { display: none; }
+.lead-done { text-align: center; justify-items: center; padding: 36px 24px; }
+.lead-done:focus { outline: none; }
+.lead-done i.done-icon { font-size: 2.4rem; color: var(--wa); }
+.lead-done h3 { margin: 0; font-size: 1.3rem; }
+.lead-done p { margin: 0; color: var(--muted); max-width: 36ch; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ---------- Halaman produk ---------- */
 .page-intro { padding: 48px 0 24px; overflow: hidden; }
@@ -266,10 +307,7 @@ p { margin: 0 0 1em; }
 .footer-grid { display: grid; gap: 36px; }
 .footer-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .footer-grid li i { width: 18px; margin-right: 8px; color: #8fb0d6; }
-.wa-form { display: grid; gap: 10px; }
-.wa-form input {
-  font: inherit; color: var(--ink); background: #fff; border: 0; border-radius: 12px; padding: 12px 14px; min-height: 46px;
-}
+.footer-grid .btn--sm { margin-top: 4px; }
 .footer-legal { border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 44px; padding-top: 24px; font-size: .82rem; color: #9fb1c4; }
 .footer-legal p { max-width: 900px; }
 @media (min-width: 900px) { .footer-grid { grid-template-columns: 1.3fr 1fr 1.2fr 1.2fr; gap: 40px; } }
