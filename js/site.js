@@ -15,6 +15,13 @@
     }
   });
 
+  // 1b. Catat klik ke toko online resmi 4Life
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest ? e.target.closest('a[href*="4life.com"]') : null;
+    if (!link) return;
+    track("klik_toko_resmi", { produk: link.getAttribute("data-produk") || "umum", page: location.pathname });
+  });
+
   // 2. Sumber kunjungan (UTM / referrer), disimpan selama sesi supaya tidak hilang saat pindah halaman
   function sumberKunjungan() {
     var key = "is_sumber";
