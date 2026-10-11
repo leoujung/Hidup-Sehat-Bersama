@@ -297,6 +297,8 @@ p { margin: 0 0 1em; }
 .product .kind { color: var(--muted); font-size: .92rem; margin-bottom: 14px; }
 .product .facts { margin: 0 0 16px; font-size: .92rem; gap: 6px; }
 .product .btn { margin-top: auto; width: 100%; }
+.product-actions { margin-top: auto; display: grid; gap: 8px; }
+.product-actions .btn { margin-top: 0; }
 .product--featured { border: 2px solid var(--blue); }
 
 /* ---------- Footer ---------- */
