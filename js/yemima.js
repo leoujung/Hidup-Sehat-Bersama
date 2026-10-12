@@ -58,7 +58,7 @@
         i18n: {
           en: {
             title: "Yemima",
-            subtitle: "Asisten AI Ingat Sehat · biasanya membalas dalam hitungan detik",
+            subtitle: "Asisten AI Ingat Sehat",
             footer: "",
             getStarted: "Mulai chat",
             inputPlaceholder: "Tulis pertanyaan Kakak…",
@@ -67,6 +67,15 @@
         }
       });
       btn.hidden = true;
+      // Header biru disembunyikan begitu Kakak mulai chat, supaya ruang pesan lebih luas.
+      var wadah = document.getElementById("yemima-chat");
+      var pantau = new MutationObserver(function () {
+        if (wadah.querySelector(".chat-message-from-user")) {
+          wadah.classList.add("is-chatting");
+          pantau.disconnect();
+        }
+      });
+      pantau.observe(wadah, { childList: true, subtree: true });
       // Buka jendela chat langsung, tanpa klik kedua.
       var tries = 0;
       (function bukaJendela() {

@@ -352,6 +352,7 @@ p { margin: 0 0 1em; }
 .yemima-launch i { font-size: 1.1rem; }
 .yemima-launch.is-loading { opacity: .85; cursor: progress; }
 .yemima-launch[hidden] { display: none; }
+#yemima-chat.is-chatting .chat-header { display: none; }
 #yemima-chat {
   --chat--color--primary: #1e4fa8;
   --chat--color--primary-shade-50: #163c80;
