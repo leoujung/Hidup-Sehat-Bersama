@@ -16,8 +16,8 @@
   --line: #d6e2ee;
   --yolk: #f2b33d;      /* aksen kuning telur */
   --yolk-soft: #fdf1d6;
-  --wa: #128c4a;        /* tombol WhatsApp (kontras aman untuk teks putih) */
-  --wa-dark: #0e723c;
+  --wa: #107c42;        /* tombol WhatsApp (kontras 5,3:1 untuk teks putih) */
+  --wa-dark: #0b6332;
 
   --radius: 18px;
   --wrap: 1120px;
@@ -385,6 +385,26 @@ p { margin: 0 0 1em; }
   --chat--border-radius: 18px;
 }
 @media (max-width: 480px) {
-  .yemima-launch { padding: 0 16px; }
   #yemima-chat { --chat--window--width: calc(100vw - 24px); --chat--window--right: 12px; --chat--window--height: calc(100vh - 120px); }
+}
+
+/* ---------- Kartu produk: info pakai, catatan, detail ---------- */
+.product-badge { align-self: flex-start; margin-bottom: 8px; padding: 3px 10px; border-radius: 999px; background: var(--yolk-soft); color: #7a5208; font-size: .78rem; font-weight: 700; }
+.product .for-who { display: flex; gap: 10px; align-items: flex-start; margin: -4px 0 12px; font-size: .92rem; }
+.product .for-who i { color: var(--blue); width: 20px; margin-top: 5px; text-align: center; flex: none; }
+.product-note { display: flex; gap: 10px; align-items: flex-start; margin: -4px 0 14px; padding: 10px 12px; border-radius: 12px; background: #fff7e6; color: #6b4a0c; font-size: .85rem; line-height: 1.5; }
+.product-note i { margin-top: 3px; flex: none; }
+.product-more { margin: -4px 0 16px; font-size: .88rem; color: var(--muted); }
+.product-more summary { cursor: pointer; color: var(--blue); font-weight: 600; padding: 6px 0; min-height: 32px; list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.product-more summary::-webkit-details-marker { display: none; }
+.product-more summary::after { content: "\25BE"; font-size: .8em; transition: transform .15s; }
+.product-more[open] summary::after { transform: rotate(180deg); }
+.product-more p { margin: 6px 0 0; }
+.source-note { font-size: .85rem; color: var(--muted); margin-top: 8px; }
+
+/* Tombol Yemima di HP: bulat, bertumpuk di atas tombol WhatsApp */
+@media (max-width: 600px) {
+  .yemima-launch { right: 21px; bottom: 88px; width: 52px; height: 52px; min-height: 52px; padding: 0; justify-content: center; }
+  .yemima-launch .yemima-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .yemima-launch i { font-size: 1.3rem; }
 }
