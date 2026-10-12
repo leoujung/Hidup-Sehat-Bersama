@@ -33,13 +33,36 @@
     window.open(btn.getAttribute("data-wa"), "_blank", "noopener");
   }
 
-  btn.addEventListener("click", function () {
+  var loaded = false;
+
+  function bukaJendela() {
+    var tries = 0;
+    (function coba() {
+      var toggle = document.querySelector("#yemima-chat .chat-window-toggle");
+      if (toggle) {
+        var win = document.querySelector("#yemima-chat .chat-window");
+        if (!win || win.offsetParent === null) toggle.click();
+        return;
+      }
+      if (++tries < 40) setTimeout(coba, 50);
+    })();
+  }
+
+  var SAPA = "Hai Kak! 👋 Aku Yemima, asisten virtual (AI) Ingat Sehat. Infoku bersifat umum dan bukan pengganti saran dokter ya.";
+  var PESAN = {
+    biasa: [SAPA, "Aku bisa bantu pilih produk atau paket 4Life, jelasin cara belanja, sampai Member Loyalitas. Mau tanya apa hari ini?"],
+    finder: [SAPA, "Aku bantu pilihkan lewat 3 pertanyaan singkat ya. Pertama: produknya untuk siapa? Saya sendiri, pasangan/keluarga, atau orang tua?"]
+  };
+
+  // mode: "biasa" (tombol Yemima) atau "finder" (tombol "Bantu pilihkan" di halaman produk)
+  function buka(mode) {
+    if (loaded) { bukaJendela(); return; }
     if (loading) return;
     loading = true;
     btn.disabled = true;
     btn.classList.add("is-loading");
     btn.querySelector(".yemima-label").textContent = "Memuat…";
-    track("yemima_open", { page: location.pathname });
+    track("yemima_open", { page: location.pathname, mode: mode });
     loadCss();
 
     import(CDN + "chat.bundle.es.js").then(function (mod) {
@@ -50,11 +73,8 @@
         loadPreviousSession: false,
         showWelcomeScreen: false,
         enableStreaming: false,
-        metadata: { halaman: location.pathname, sumber: sumber() },
-        initialMessages: [
-          "Hai Kak! 👋 Aku Yemima, asisten virtual (AI) Ingat Sehat. Infoku bersifat umum dan bukan pengganti saran dokter ya.",
-          "Aku bisa bantu pilih produk atau paket 4Life, jelasin cara belanja, sampai Member Loyalitas. Mau tanya apa hari ini?"
-        ],
+        metadata: { halaman: location.pathname, sumber: sumber(), mode: mode },
+        initialMessages: PESAN[mode] || PESAN.biasa,
         i18n: {
           en: {
             title: "Yemima",
@@ -66,6 +86,8 @@
           }
         }
       });
+      loaded = true;
+      loading = false;
       btn.hidden = true;
       // Header biru disembunyikan begitu Kakak mulai chat, supaya ruang pesan lebih luas.
       var wadah = document.getElementById("yemima-chat");
@@ -76,16 +98,18 @@
         }
       });
       pantau.observe(wadah, { childList: true, subtree: true });
-      // Buka jendela chat langsung, tanpa klik kedua.
-      var tries = 0;
-      (function bukaJendela() {
-        var toggle = document.querySelector("#yemima-chat .chat-window-toggle");
-        if (toggle) { toggle.click(); return; }
-        if (++tries < 40) setTimeout(bukaJendela, 50);
-      })();
+      bukaJendela();
     }).catch(function () {
       track("yemima_error", { page: location.pathname });
       gagal();
+    });
+  }
+
+  btn.addEventListener("click", function () { buka("biasa"); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-yemima]"), function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      buka(el.getAttribute("data-yemima") || "biasa");
     });
   });
 })();
