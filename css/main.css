@@ -338,3 +338,52 @@ p { margin: 0 0 1em; }
 @media (min-width: 900px) { .edu { grid-template-columns: .9fr 1.1fr; gap: 56px; } }
 .video-title { margin-top: 48px; margin-bottom: 0; }
 .edu-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Chat Yemima (asisten AI) ---------- */
+.yemima-launch {
+  position: fixed; right: 18px; bottom: 88px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 48px; padding: 0 18px; border: 0; border-radius: 999px;
+  background: var(--blue); color: #fff; font: inherit; font-weight: 700; font-size: .95rem;
+  cursor: pointer; box-shadow: 0 10px 24px rgba(16, 38, 59, .28);
+}
+.yemima-launch:hover { background: var(--blue-dark); }
+.yemima-launch:focus-visible { outline: 3px solid var(--yolk); outline-offset: 3px; }
+.yemima-launch i { font-size: 1.1rem; }
+.yemima-launch.is-loading { opacity: .85; cursor: progress; }
+.yemima-launch[hidden] { display: none; }
+#yemima-chat {
+  --chat--color--primary: #1e4fa8;
+  --chat--color--primary-shade-50: #163c80;
+  --chat--color--primary--shade-100: #10306a;
+  --chat--color--secondary: #1e4fa8;
+  --chat--color-secondary-shade-50: #163c80;
+  --chat--color-dark: #10263b;
+  --chat--font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --chat--header--background: #10263b;
+  --chat--header--color: #fff;
+  --chat--heading--font-size: 1.4em;
+  --chat--subtitle--font-size: .85em;
+  --chat--subtitle--line-height: 1.4;
+  --chat--message--font-size: .95rem;
+  --chat--message--bot--background: #e9f2fb;
+  --chat--message--bot--color: #10263b;
+  --chat--message--user--background: #1e4fa8;
+  --chat--message--user--color: #fff;
+  --chat--toggle--background: #1e4fa8;
+  --chat--toggle--hover--background: #163c80;
+  --chat--toggle--active--background: #10306a;
+  --chat--toggle--size: 52px;
+  --chat--toggle--width: 52px;
+  --chat--toggle--height: 52px;
+  --chat--window--bottom: 86px;
+  --chat--window--right: 18px;
+  --chat--window--width: 380px;
+  --chat--window--height: 580px;
+  --chat--window--z-index: 70;
+  --chat--border-radius: 18px;
+}
+@media (max-width: 480px) {
+  .yemima-launch { padding: 0 16px; }
+  #yemima-chat { --chat--window--width: calc(100vw - 24px); --chat--window--right: 12px; --chat--window--height: calc(100vh - 120px); }
+}
