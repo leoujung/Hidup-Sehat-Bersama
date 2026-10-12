@@ -459,3 +459,20 @@ p { margin: 0 0 1em; }
 .faq-item summary::after { content: "+"; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--blue); font-weight: 400; }
 .faq-item[open] summary::after { content: "\2212"; }
 .faq-item p { margin: 0; padding: 0 18px 18px; color: var(--muted); }
+
+/* ---------- Paket hemat & Member Loyalitas ---------- */
+.packs { display: grid; gap: 18px; }
+.pack { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; display: flex; flex-direction: column; }
+.pack h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.pack-isi { color: var(--muted); margin-bottom: 14px; }
+.pack .facts { margin: 0 0 18px; font-size: .92rem; gap: 8px; }
+@media (min-width: 900px) { .packs { grid-template-columns: repeat(3, 1fr); } }
+.member-box { display: grid; gap: 28px; border: 2px solid var(--blue); border-radius: var(--radius); padding: 28px 22px; }
+.member-box h2 { font-size: var(--step-2); margin: 8px 0 10px; }
+.member-box > div > p { color: var(--muted); }
+.member-box .facts { margin: 16px 0 12px; }
+.member-steps { background: var(--sky); border-radius: var(--radius); padding: 22px 20px; }
+.member-steps h3 { font-size: 1.1rem; margin-bottom: 12px; }
+.member-steps ol { margin: 0 0 18px; padding-left: 20px; display: grid; gap: 10px; }
+@media (min-width: 900px) { .member-box { grid-template-columns: 1.2fr 1fr; padding: 36px 36px; align-items: start; } }
+.plan-more { display: block; margin-top: 10px; font-size: .9rem; text-align: center; }
