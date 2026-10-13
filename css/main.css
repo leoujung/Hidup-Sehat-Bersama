@@ -528,3 +528,5 @@ p { margin: 0 0 1em; }
 @media (min-width: 800px) { .cek-teaser { grid-template-columns: 1fr auto; padding: 28px 36px; } }
 .cek-link { font-size: .95rem; margin-top: 10px; }
 @media (max-width: 600px) { .cek-nav { justify-content: flex-start; } .cek-nav [data-cek="next"] { margin-left: 0; } }
+.faq-list { margin: 0; padding: 0 18px 18px 38px; color: var(--muted); display: grid; gap: 8px; }
+.faq-list strong { color: var(--ink); }
