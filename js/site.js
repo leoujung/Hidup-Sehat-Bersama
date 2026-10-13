@@ -9,7 +9,7 @@
     var link = e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
     if (!link) return;
     var label = (link.textContent || "").trim() || "WhatsApp";
-    track("generate_lead", { method: "whatsapp", link_text: label, page: location.pathname });
+    track("generate_lead", { method: "whatsapp", link_text: label, page: location.pathname, mitra: KODE_MITRA || "-" });
     if (typeof window.fbq === "function") {
       window.fbq("track", "Contact", { method: "whatsapp" });
     }
@@ -46,6 +46,70 @@
     return sumber;
   }
   var SUMBER = sumberKunjungan();
+
+  // 2b. Link mitra: ?mitra=kode membuat semua tombol WhatsApp mengarah ke nomor mitra itu.
+  //     Nomor diambil dari n8n (Data Table privat), tidak pernah disimpan di kode website ini.
+  //     Gagal atau kode tidak dikenal = tombol tetap ke nomor Leo.
+  var NOMOR_LEO = "6287718227922";
+  var MITRA_API = "https://n8n-n0ft.srv1964287.hstgr.cloud/webhook/ingatsehat-mitra?kode=";
+  var waMitra = null;
+
+  function bacaMitra() {
+    var q = (new URLSearchParams(location.search).get("mitra") || "").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 30);
+    try {
+      if (q) { localStorage.setItem("is_mitra", JSON.stringify({ kode: q, t: Date.now() })); return q; }
+      var s = JSON.parse(localStorage.getItem("is_mitra") || "null");
+      if (s && s.kode && Date.now() - s.t < 30 * 864e5) return s.kode; // berlaku 30 hari
+    } catch (err) { /* storage diblokir: pakai kode dari URL saja */ }
+    return q;
+  }
+
+  function keMitra(nilai) {
+    if (!waMitra || !nilai) return nilai;
+    if (nilai === NOMOR_LEO) return waMitra;
+    return nilai.split("wa.me/" + NOMOR_LEO).join("wa.me/" + waMitra);
+  }
+
+  function terapkanMitra() {
+    Array.prototype.forEach.call(document.querySelectorAll('a[href*="wa.me/' + NOMOR_LEO + '"]'), function (a) {
+      a.setAttribute("href", keMitra(a.getAttribute("href")));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-wa]"), function (el) {
+      el.setAttribute("data-wa", keMitra(el.getAttribute("data-wa")));
+    });
+  }
+
+  // Tombol yang dibuat belakangan (misalnya hasil Cek 7 Pilar) diganti tepat saat diklik.
+  document.addEventListener("click", function (e) {
+    if (!waMitra || !e.target.closest) return;
+    var a = e.target.closest('a[href*="wa.me/' + NOMOR_LEO + '"]');
+    if (a) a.setAttribute("href", keMitra(a.getAttribute("href")));
+  }, true);
+
+  var KODE_MITRA = bacaMitra();
+  if (KODE_MITRA) {
+    if (SUMBER.indexOf("mitra=") < 0) {
+      SUMBER += " | mitra=" + KODE_MITRA;
+      try { sessionStorage.setItem("is_sumber", SUMBER); } catch (err) { /* abaikan */ }
+    }
+    var simpan = null;
+    try { simpan = JSON.parse(sessionStorage.getItem("is_mitra_wa") || "null"); } catch (err) { /* abaikan */ }
+    if (simpan && simpan.kode === KODE_MITRA) {
+      waMitra = simpan.wa;
+      terapkanMitra();
+    } else if (typeof fetch === "function") {
+      fetch(MITRA_API + encodeURIComponent(KODE_MITRA))
+        .then(function (res) { return res.ok ? res.json() : {}; })
+        .then(function (j) {
+          if (!j || !j.ok || !/^62\d{8,13}$/.test(String(j.wa))) return;
+          waMitra = String(j.wa);
+          try { sessionStorage.setItem("is_mitra_wa", JSON.stringify({ kode: KODE_MITRA, wa: waMitra })); } catch (err) { /* abaikan */ }
+          terapkanMitra();
+          track("mitra_link", { kode: KODE_MITRA, page: location.pathname });
+        })
+        .catch(function () { /* tetap ke nomor Leo */ });
+    }
+  }
 
   // 3. Formulir lead: kirim ke n8n (Google Sheets + Telegram), fallback ke WhatsApp kalau gagal
   var LABEL_MINAT = { tanya: "konsultasi produk", beli: "membeli produk", member: "info Member Loyalitas", mitra: "info peluang bisnis 4Life" };
