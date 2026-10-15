@@ -25,4 +25,9 @@
       if (typeof window.gtag === "function") window.gtag("event", "filter_produk", { kategori: kat });
     });
   });
+
+  // tf.html?kategori=imun langsung menyaring (dipakai dari halaman hasil Asesmen Hidup Sehat)
+  var awal = (new URLSearchParams(location.search).get("kategori") || "").toLowerCase();
+  var ada = Array.prototype.some.call(chips, function (b) { return b.getAttribute("data-filter") === awal; });
+  if (awal && ada) saring(awal);
 })();
