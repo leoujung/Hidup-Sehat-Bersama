@@ -90,6 +90,37 @@
   var WAJIB = ["gender", "usia", "tinggi", "berat", "rokok", "air", "buah", "sayur", "susu", "biji", "gula", "daging", "ikan",
     "menu", "bab", "duduk", "ringan", "sedang", "beratakt", "stres", "tidur", "energi", "imun", "area", "setuju"];
 
+  // ---------- Link hasil: jawaban diringkas di bagian #h= (tidak terkirim ke server saat link dibuka) ----------
+  var DIGIT = ["rokok", "air", "buah", "sayur", "susu", "biji", "gula", "daging", "ikan", "menu", "bab", "duduk",
+    "ringan", "sedang", "beratakt", "stres", "tidur", "energi", "imun"];
+  function enkode(d) {
+    return [d.gender, d.usia, d.tinggi, String(d.berat).replace(",", "."),
+      DIGIT.map(function (k) { return d[k]; }).join(""), d.area.join(".")].join("_");
+  }
+  function dekode(h) {
+    var m = /^([pw])_(\d{2,3})_(\d{2,3}(?:\.\d)?)_(\d{2,3}(?:\.\d)?)_(\d{19})_([a-z.]{2,60})$/.exec(String(h || ""));
+    if (!m) return null;
+    var d = { gender: m[1], usia: m[2], tinggi: m[3], berat: m[4] };
+    if (!sahAngka("usia", d.usia) || !sahAngka("tinggi", d.tinggi) || !sahAngka("berat", d.berat)) return null;
+    var BATAS = [1, 3, 6, 6, 6, 6, 6, 7, 7, 3, 4, 3, 3, 3, 3, 4, 4, 4, 4];
+    for (var i = 0; i < DIGIT.length; i++) {
+      var v = parseInt(m[5].charAt(i), 10);
+      if (v > BATAS[i]) return null;
+      d[DIGIT[i]] = String(v);
+    }
+    d.area = m[6].split(".").filter(function (a, i, arr) { return AREA[a] && arr.indexOf(a) === i; }).slice(0, 3);
+    return d.area.length ? d : null;
+  }
+  function kodeMitra() {
+    try { var s = JSON.parse(localStorage.getItem("is_mitra") || "null"); if (s && s.kode) return s.kode; } catch (err) { /* abaikan */ }
+    return "";
+  }
+  var kodeHasil = "";
+  function linkHasil() {
+    var k = kodeMitra();
+    return "https://ingatsehat.my.id/asesmen.html" + (k ? "?mitra=" + encodeURIComponent(k) : "") + "#h=" + kodeHasil;
+  }
+
   function nilai(name) {
     if (name === "area") {
       return Array.prototype.map.call(form.querySelectorAll('[name="area"]:checked'), function (c) { return c.value; });
@@ -173,6 +204,7 @@
       return;
     }
     galat.hidden = true;
+    kodeHasil = enkode(data);
     tampilkan(olah(data));
   });
 
@@ -414,11 +446,17 @@
       " Area yang ingin Anda jaga: " + r.area.map(function (a) { return AREA[a].toLowerCase(); }).join(", ") + ".";
 
     var namaProduk = r.produk.slice(0, 3).map(function (id) { return PRODUK[id].pendek; });
+    // Batas kolom pesan di alur lead = 500 karakter: ringkasan dipotong dulu supaya link hasil selalu utuh.
+    var link = linkHasil();
+    var ekor = " Link hasil: " + link;
     ringkasan = "Asesmen Hidup Sehat: " + (r.wanita ? "wanita" : "pria") + ", " + r.usia + " th, IMT " + r.imt + ". " +
-      (perlu.length ? "Perlu perhatian: " + perlu.join(", ") + ". " : "") +
-      "Ingin dijaga: " + r.area.map(function (a) { return AREA[a]; }).join(", ") + ". " +
-      "Saran produk: " + namaProduk.join(", ") + ".";
-    waHasil.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Halo, saya sudah mengisi Asesmen Hidup Sehat di website. " + ringkasan.replace(/^Asesmen Hidup Sehat: /, "Hasil saya: ") + " Saya mau diskusi.");
+      "Saran produk: " + namaProduk.join(", ") + ". " +
+      "Ingin dijaga: " + r.area.map(function (a) { return AREA[a]; }).join(", ") + "." +
+      (perlu.length ? " Perlu perhatian: " + perlu.join(", ") + "." : "");
+    var maks = 498 - ekor.length;
+    if (ringkasan.length > maks) ringkasan = ringkasan.slice(0, maks - 1).replace(/[ ,]+[^ ,]*$/, "") + "…";
+    ringkasan += ekor;
+    waHasil.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Halo, saya sudah mengisi Asesmen Hidup Sehat di website dan mau diskusi hasilnya. " + ringkasan.replace(/^Asesmen Hidup Sehat: /, "Hasil saya: "));
 
     form.hidden = true;
     hasil.hidden = false;
@@ -442,10 +480,31 @@
   window.addEventListener("beforeprint", function () {
     Array.prototype.forEach.call(hasil.querySelectorAll(".as-ekstra"), function (x) { x.hidden = false; });
   });
-  hasil.querySelector('[data-as="cetak"]').addEventListener("click", function () {
+  // Cetak/simpan PDF terbuka setelah pengunjung mengisi nama + WhatsApp (atau membuka link hasil dari WhatsApp).
+  var terbuka = false;
+  try { terbuka = sessionStorage.getItem("as_terbuka") === "1"; } catch (err) { /* abaikan */ }
+  function bukaCetak() {
+    terbuka = true;
+    try { sessionStorage.setItem("as_terbuka", "1"); } catch (err) { /* abaikan */ }
+    var kunci = hasil.querySelector('[data-as="cetak"] .as-kunci');
+    if (kunci) kunci.remove();
+  }
+  function cetak() {
     track("asesmen_cetak", {});
     window.print();
+  }
+  hasil.querySelector('[data-as="cetak"]').addEventListener("click", function () {
+    if (terbuka) { cetak(); return; }
+    var kartu = document.getElementById("panduan");
+    var st = kartu.querySelector(".lead-status");
+    if (st) st.textContent = "Isi nama dan WhatsApp dulu. Setelah terkirim, hasil langsung bisa dicetak atau disimpan sebagai PDF, dan link hasil kami kirim ke WhatsApp Anda.";
+    kartu.scrollIntoView({ behavior: "smooth", block: "center" });
+    var n = document.getElementById("pd-nama");
+    if (n) setTimeout(function () { n.focus({ preventScroll: true }); }, 350);
+    track("asesmen_cetak_terkunci", {});
   });
+  var cetak2 = hasil.querySelector('[data-as="cetak2"]');
+  if (cetak2) cetak2.addEventListener("click", cetak);
   hasil.querySelector('[data-as="ulang"]').addEventListener("click", function () {
     form.reset();
     batasArea();
@@ -457,8 +516,7 @@
 
   var stBagi = hasil.querySelector(".as-bagikan-status");
   hasil.querySelector('[data-as="bagikan"]').addEventListener("click", function () {
-    var kode = "";
-    try { var s = JSON.parse(localStorage.getItem("is_mitra") || "null"); if (s && s.kode) kode = s.kode; } catch (err) { /* abaikan */ }
+    var kode = kodeMitra();
     var url = location.origin + location.pathname + (kode ? "?mitra=" + encodeURIComponent(kode) : "");
     var teks = "Coba Asesmen Hidup Sehat gratis ini, ±4 menit, langsung dapat insight pola hidup:";
     track("asesmen_bagikan", { mitra: kode || "-" });
@@ -511,10 +569,11 @@
       }
     };
     var selesai = function (nama, terkirim) {
-      pdone.querySelector(".panduan-done-judul").textContent = "Terima kasih, " + nama + "! Panduan siap diunduh";
+      bukaCetak();
+      pdone.querySelector(".panduan-done-judul").textContent = "Terima kasih, " + nama + "! Hasil siap disimpan";
       pdone.querySelector(".panduan-done-teks").textContent = terkirim
-        ? "Kami akan menghubungi Anda lewat WhatsApp untuk membahas hasil asesmen."
-        : "Data Anda belum terkirim, tapi panduan tetap bisa diunduh. Untuk membahas hasil, tekan \"Diskusikan hasil saya\" di bawah.";
+        ? "Link hasil asesmen akan kami kirim ke WhatsApp Anda, sekaligus membahasnya bersama Anda. Sekarang Anda bisa mencetak atau menyimpan hasil sebagai PDF, dan mengunduh panduan gratis."
+        : "Data Anda belum terkirim, tapi hasil tetap bisa dicetak dan panduan tetap bisa diunduh. Untuk membahas hasil, tekan \"Diskusikan hasil saya\" di bawah.";
       pform.hidden = true;
       pdone.hidden = false;
       pdone.focus();
@@ -571,5 +630,16 @@
     pdone.querySelector('[data-panduan="unduh"]').addEventListener("click", function () {
       track("panduan_unduh", { page: location.pathname });
     });
+  }
+  // Buka hasil dari link #h= (misalnya link yang dikirim lewat WhatsApp)
+  var hBuka = (location.hash.match(/^#h=([^&]+)/) || [])[1];
+  if (hBuka) {
+    var dBuka = dekode(decodeURIComponent(hBuka));
+    if (dBuka) {
+      kodeHasil = enkode(dBuka);
+      bukaCetak();
+      tampilkan(olah(dBuka));
+      track("asesmen_buka_link", {});
+    }
   }
 })();

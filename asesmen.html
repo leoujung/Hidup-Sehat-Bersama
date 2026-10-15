@@ -344,8 +344,8 @@
               <div class="panduan-head">
                 <span class="panduan-ikon" aria-hidden="true"><i class="fas fa-file-pdf"></i></span>
                 <div>
-                  <h3>Bahas hasil Anda + gratis Panduan 7 Pilar (PDF)</h3>
-                  <p class="muted small">Isi nama dan WhatsApp. Panduan langsung bisa diunduh, dan kami bantu membahas hasil asesmen Anda secara pribadi.</p>
+                  <h3>Simpan hasil Anda + gratis Panduan 7 Pilar (PDF)</h3>
+                  <p class="muted small">Isi nama dan WhatsApp untuk mencetak atau menyimpan hasil sebagai PDF. Link hasil juga kami kirim ke WhatsApp Anda supaya bisa dibuka lagi kapan saja, dan kami bantu membahasnya secara pribadi.</p>
                 </div>
               </div>
               <form class="panduan-form" data-endpoint="https://n8n-n0ft.srv1964287.hstgr.cloud/webhook/ingatsehat-lead" novalidate>
@@ -361,22 +361,25 @@
                   <label for="pd-website">Website</label>
                   <input id="pd-website" name="website" type="text" tabindex="-1" autocomplete="off" />
                 </div>
-                <button type="submit" class="btn btn--blue"><i class="fas fa-paper-plane" aria-hidden="true"></i> Kirim &amp; unduh panduan</button>
+                <button type="submit" class="btn btn--blue"><i class="fas fa-paper-plane" aria-hidden="true"></i> Kirim &amp; simpan hasil</button>
                 <p class="lead-consent">Dengan mengirim, Anda setuju dihubungi lewat WhatsApp untuk membahas hasil asesmen. Data hanya dipakai untuk membalas Anda dan tidak kami jual.</p>
                 <p class="lead-status" role="status" aria-live="polite"></p>
               </form>
               <div class="panduan-done" hidden tabindex="-1">
                 <i class="fas fa-check-circle done-icon" aria-hidden="true"></i>
-                <h3 class="panduan-done-judul">Panduan siap diunduh</h3>
-                <p class="muted panduan-done-teks">Kami akan menghubungi Anda lewat WhatsApp untuk membahas hasil asesmen.</p>
-                <a class="btn btn--blue" href="files/panduan-7-pilar.pdf" download="Panduan-7-Pilar-Hidup-Sehat.pdf" data-panduan="unduh"><i class="fas fa-download" aria-hidden="true"></i> Unduh Panduan (PDF)</a>
+                <h3 class="panduan-done-judul">Hasil siap disimpan</h3>
+                <p class="muted panduan-done-teks">Link hasil asesmen akan kami kirim ke WhatsApp Anda.</p>
+                <div class="hero-actions as-done-aksi">
+                  <button type="button" class="btn btn--blue" data-as="cetak2"><i class="fas fa-print" aria-hidden="true"></i> Cetak / simpan hasil (PDF)</button>
+                  <a class="btn btn--ghost" href="files/panduan-7-pilar.pdf" download="Panduan-7-Pilar-Hidup-Sehat.pdf" data-panduan="unduh"><i class="fas fa-download" aria-hidden="true"></i> Unduh Panduan 7 Pilar</a>
+                </div>
               </div>
             </div>
 
             <div class="as-card as-aksi">
               <div class="hero-actions">
                 <a class="btn btn--wa" id="wa-hasil" href="https://wa.me/6287718227922?text=Halo%2C%20saya%20sudah%20mengisi%20Asesmen%20Hidup%20Sehat"><i class="fab fa-whatsapp" aria-hidden="true"></i> Diskusikan hasil saya</a>
-                <button type="button" class="btn btn--ghost" data-as="cetak"><i class="fas fa-print" aria-hidden="true"></i> Cetak / simpan PDF</button>
+                <button type="button" class="btn btn--ghost" data-as="cetak"><i class="fas fa-print" aria-hidden="true"></i> Cetak / simpan PDF<i class="fas fa-lock as-kunci" aria-hidden="true"></i></button>
               </div>
               <button type="button" class="as-ulang" data-as="ulang"><i class="fas fa-redo" aria-hidden="true"></i> Ulangi asesmen</button>
               <div class="as-bagikan">
