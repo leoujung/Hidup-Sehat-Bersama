@@ -530,3 +530,26 @@ p { margin: 0 0 1em; }
 @media (max-width: 600px) { .cek-nav { justify-content: flex-start; } .cek-nav [data-cek="next"] { margin-left: 0; } }
 .faq-list { margin: 0; padding: 0 18px 18px 38px; color: var(--muted); display: grid; gap: 8px; }
 .faq-list strong { color: var(--ink); }
+
+/* ---------- Lead magnet: Panduan 7 Pilar ---------- */
+.cek-panduan { border: 2px solid var(--yolk); background: var(--yolk-soft); }
+.panduan-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+.panduan-head h3 { margin-bottom: 4px; }
+.panduan-head p { margin: 0; }
+.panduan-ikon { flex: none; width: 48px; height: 48px; border-radius: 12px; background: #fff; color: #c2410c; display: grid; place-items: center; font-size: 1.4rem; }
+.panduan-form { display: grid; gap: 14px; }
+.panduan-form input[type="text"], .panduan-form input[type="tel"] {
+  font: inherit; color: var(--ink); background: #fff; width: 100%;
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px;
+}
+.panduan-form input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(30, 79, 168, .18); }
+.panduan-form [aria-invalid="true"] { border-color: #c0392b; }
+.panduan-form .btn { width: 100%; }
+.panduan-form .btn[disabled] { opacity: .7; cursor: wait; }
+.panduan-done { display: grid; gap: 10px; justify-items: center; text-align: center; padding: 8px 0; }
+.panduan-done[hidden] { display: none; }
+.panduan-done:focus { outline: none; }
+.panduan-done .done-icon { font-size: 2.2rem; color: var(--wa); }
+.panduan-done h3, .panduan-done p { margin: 0; }
+@media (min-width: 700px) { .panduan-form { grid-template-columns: 1fr 1fr; align-items: end; } .panduan-form .btn, .panduan-form .lead-consent, .panduan-form .lead-status { grid-column: 1 / -1; } }
+.panduan-form[hidden] { display: none; }

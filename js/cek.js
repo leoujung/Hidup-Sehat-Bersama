@@ -51,6 +51,7 @@
   var next = form.querySelector('[data-cek="next"]');
   var idx = 0;
   var mulai = false;
+  var ringkasan = "";
 
   function track(event, params) {
     if (typeof window.gtag === "function") window.gtag("event", event, params);
@@ -119,6 +120,9 @@
       (lemah.length ? " Yang perlu perhatian: " + lemah.map(function (s) { return s.p.nama; }).join(", ") + "." : "") +
       " Saya ingin diskusi lebih lanjut.";
     document.getElementById("wa-hasil").href = WA + encodeURIComponent(teks);
+    ringkasan = "Cek 7 Pilar: " + terjaga + " dari 7 pilar terjaga." +
+      (lemah.length ? " Perlu perhatian: " + lemah.map(function (s) { return s.p.nama + " (" + STATUS[s.v][0].toLowerCase() + ")"; }).join(", ") + "." : " Semua pilar terjaga.") +
+      " Minta Panduan 7 Pilar (PDF).";
 
     track("cek_selesai", { terjaga: terjaga, pilar_lemah: lemah.map(function (s) { return s.p.k; }).join(",") || "tidak_ada" });
 
@@ -151,6 +155,104 @@
 
   back.addEventListener("click", function () { if (idx > 0) tampil(idx - 1, true); });
   form.addEventListener("submit", function (e) { e.preventDefault(); maju(); });
+
+  // Lead magnet: nama + WA dikirim ke alur lead n8n (Sheet, Telegram, draf AI) bersama ringkasan hasil.
+  // Panduan tetap bisa diunduh walau pengiriman gagal, supaya pengunjung tidak dirugikan.
+  var pform = hasil.querySelector(".panduan-form");
+  var pdone = hasil.querySelector(".panduan-done");
+  if (pform && pdone) {
+    var pNama = pform.querySelector('[name="nama"]');
+    var pWA = pform.querySelector('[name="whatsapp"]');
+    var pBtn = pform.querySelector('button[type="submit"]');
+    var pStatus = pform.querySelector(".lead-status");
+
+    var normalWA = function (v) {
+      var wa = String(v || "").replace(/[^0-9]/g, "");
+      if (wa.indexOf("0") === 0) wa = "62" + wa.slice(1);
+      else if (wa.indexOf("8") === 0) wa = "62" + wa;
+      return wa;
+    };
+    var salah = function (input, msg) {
+      var box = input.closest(".lead-field");
+      var old = box.querySelector(".field-error");
+      if (old) old.remove();
+      if (msg) {
+        var e = el("p", "field-error", msg);
+        e.id = input.id + "-err";
+        box.appendChild(e);
+        input.setAttribute("aria-invalid", "true");
+        input.setAttribute("aria-describedby", e.id);
+      } else {
+        input.removeAttribute("aria-invalid");
+        input.removeAttribute("aria-describedby");
+      }
+    };
+    var selesai = function (nama, terkirim) {
+      pdone.querySelector(".panduan-done-judul").textContent = "Terima kasih, " + nama + "! Panduan siap diunduh";
+      pdone.querySelector(".panduan-done-teks").textContent = terkirim
+        ? "Kami akan menghubungi Anda lewat WhatsApp untuk membahas hasil cek."
+        : "Data Anda belum terkirim, tapi panduan tetap bisa diunduh. Untuk membahas hasil cek, tekan \"Diskusikan hasil saya\" di bawah.";
+      pform.hidden = true;
+      pdone.hidden = false;
+      pdone.focus();
+    };
+
+    pform.addEventListener("input", function (e) {
+      if (e.target.getAttribute("aria-invalid")) salah(e.target, "");
+    });
+
+    pform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nama = pNama.value.trim();
+      var wa = normalWA(pWA.value);
+      var ok = true;
+      if (!nama) { salah(pNama, "Nama wajib diisi."); ok = false; } else salah(pNama, "");
+      if (!/^62\d{8,13}$/.test(wa)) { salah(pWA, "Masukkan nomor WhatsApp yang valid, contoh 0812-3456-7890."); ok = false; } else salah(pWA, "");
+      if (!ok) { (pform.querySelector('[aria-invalid="true"]') || pNama).focus(); return; }
+
+      var sumber = "langsung";
+      try { sumber = sessionStorage.getItem("is_sumber") || "langsung"; } catch (err) { /* abaikan */ }
+      var data = new URLSearchParams();
+      data.set("nama", nama);
+      data.set("whatsapp", wa);
+      data.set("minat", "tanya");
+      data.set("pesan", ringkasan);
+      data.set("halaman", location.pathname + " (panduan 7 pilar)");
+      data.set("sumber", sumber);
+      data.set("website", pform.querySelector('[name="website"]').value);
+
+      pBtn.disabled = true;
+      pStatus.textContent = "Mengirim…";
+      var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 12000);
+
+      fetch(pform.getAttribute("data-endpoint"), { method: "POST", body: data, signal: ctrl ? ctrl.signal : undefined })
+        .then(function (res) {
+          clearTimeout(timer);
+          if (res.status === 400) {
+            return res.json().catch(function () { return {}; }).then(function (j) {
+              pBtn.disabled = false;
+              pStatus.textContent = "";
+              salah(pWA, j.error || "Data belum lengkap, mohon periksa kembali.");
+              pWA.focus();
+            });
+          }
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          track("generate_lead", { method: "panduan_7_pilar", page: location.pathname });
+          if (typeof window.fbq === "function") window.fbq("track", "Lead", { method: "panduan_7_pilar" });
+          selesai(nama, true);
+        })
+        .catch(function () {
+          clearTimeout(timer);
+          track("panduan_error", { page: location.pathname });
+          selesai(nama, false);
+        });
+    });
+
+    pdone.querySelector('[data-panduan="unduh"]').addEventListener("click", function () {
+      track("panduan_unduh", { page: location.pathname });
+    });
+  }
 
   hasil.querySelector('[data-cek="ulang"]').addEventListener("click", function () {
     form.reset();
