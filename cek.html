@@ -150,6 +150,39 @@
               <div id="tips-list"></div>
             </div>
 
+            <div class="cek-card cek-panduan" id="panduan">
+              <div class="panduan-head">
+                <span class="panduan-ikon" aria-hidden="true"><i class="fas fa-file-pdf"></i></span>
+                <div>
+                  <h3>Gratis: Panduan 7 Pilar Hidup Sehat</h3>
+                  <p class="muted small">PDF 11 halaman: tips tiap pilar, tantangan 7 hari, dan pelacak 2 minggu. Isi nama dan WhatsApp, panduan langsung bisa diunduh, dan kami bantu membahas hasil cek Anda.</p>
+                </div>
+              </div>
+              <form class="panduan-form" data-endpoint="https://n8n-n0ft.srv1964287.hstgr.cloud/webhook/ingatsehat-lead" novalidate>
+                <div class="lead-field">
+                  <label for="pd-nama">Nama</label>
+                  <input id="pd-nama" name="nama" type="text" autocomplete="given-name" maxlength="80" required />
+                </div>
+                <div class="lead-field">
+                  <label for="pd-wa">Nomor WhatsApp</label>
+                  <input id="pd-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="0812-3456-7890" required />
+                </div>
+                <div class="hp" aria-hidden="true">
+                  <label for="pd-website">Website</label>
+                  <input id="pd-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                </div>
+                <button type="submit" class="btn btn--blue"><i class="fas fa-download" aria-hidden="true"></i> Kirim &amp; unduh panduan</button>
+                <p class="lead-consent">Dengan mengirim, Anda setuju dihubungi lewat WhatsApp untuk membahas hasil cek. Data hanya dipakai untuk membalas Anda dan tidak kami jual.</p>
+                <p class="lead-status" role="status" aria-live="polite"></p>
+              </form>
+              <div class="panduan-done" hidden tabindex="-1">
+                <i class="fas fa-check-circle done-icon" aria-hidden="true"></i>
+                <h3 class="panduan-done-judul">Panduan siap diunduh</h3>
+                <p class="muted panduan-done-teks">Kami akan menghubungi Anda lewat WhatsApp untuk membahas hasil cek.</p>
+                <a class="btn btn--blue" href="files/panduan-7-pilar.pdf" download="Panduan-7-Pilar-Hidup-Sehat.pdf" data-panduan="unduh"><i class="fas fa-download" aria-hidden="true"></i> Unduh Panduan (PDF)</a>
+              </div>
+            </div>
+
             <div class="cek-card cek-peran">
               <h3>Lalu, di mana peran suplemen?</h3>
               <p>Ketujuh pilar di atas adalah fondasinya. Sebagai <strong>pelengkap</strong> gaya hidup sehat, banyak keluarga memilih suplemen kesehatan untuk membantu memelihara daya tahan tubuh. Suplemen bukan obat dan bukan pengganti makan bergizi, istirahat, dan olahraga.</p>
