@@ -672,3 +672,4 @@ p { margin: 0 0 1em; }
 }
 .cek-teaser-aksi { display: flex; flex-wrap: wrap; gap: 10px; }
 @media (min-width: 800px) { .cek-teaser-aksi { flex-direction: column; } .cek-teaser-aksi .btn { justify-content: center; } }
+@media (min-width: 900px) { .nav .nav-asesmen { display: none; } }
