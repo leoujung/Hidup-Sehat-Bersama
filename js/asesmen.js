@@ -25,7 +25,7 @@
   var PRODUK = {
     plus: {
       nama: "4Life Transfer Factor® Plus Tri-Factor™ Formula", pendek: "Transfer Factor Plus",
-      img: "img/plus-baru.webp",
+      img: "img/plus-baru.webp?v=2",
       desk: "Tri-Factor® Formula ditambah Cordyvant™ (jamur maitake, shiitake, cordyceps, dan lainnya) untuk membantu memelihara kesehatan tubuh.",
       bpom: "BPOM SI253073521", link: "https://indonesia.4life.com/leogito/product/transfer-factor-plus-tri-factor/89"
     },
