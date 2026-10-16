@@ -31,7 +31,7 @@
     },
     tri: {
       nama: "4Life Transfer Factor® Tri-Factor™ Formula", pendek: "Transfer Factor Tri-Factor",
-      img: "img/1.webp",
+      img: "img/trifactor-baru.webp",
       desk: "Kombinasi transfer factor dari kolostrum sapi dan kuning telur ayam untuk membantu mendukung dan menjaga keseimbangan sistem pertahanan tubuh. Cocok untuk tua maupun muda.",
       bpom: "BPOM SI263076871", link: "https://indonesia.4life.com/leogito/product/transfer-factor-tri-factor/95"
     },
