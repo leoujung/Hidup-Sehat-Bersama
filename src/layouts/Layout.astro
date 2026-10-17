@@ -1,0 +1,145 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogDescription?: string;
+  path: string;
+  activeNav?: "asesmen" | "produk";
+  extraScripts?: string[];
+}
+
+const {
+  title,
+  description,
+  ogDescription = description,
+  path,
+  activeNav,
+  extraScripts = [],
+} = Astro.props;
+
+const canonical = `https://ingatsehat.my.id${path}`;
+const isHome = path === "/index.html";
+const homePrefix = isHome ? "" : "/index.html";
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#1e4fa8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/img/favicon.png" />
+
+    <!-- Open Graph (preview saat dibagikan di Facebook / WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Ingat Sehat" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://ingatsehat.my.id/img/og-image.jpg?v=2" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="/css/all.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB2HM9ZB92"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-PB2HM9ZB92');
+    </script>
+    <!--
+      Meta Pixel: tempel kode base Pixel dari Meta Events Manager di sini.
+      Klik tombol WhatsApp otomatis tercatat ke GA4 dan Pixel (lihat js/site.js).
+    -->
+
+    <slot name="head" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Ingat Sehat<small>Mitra Independen 4Life</small></span>
+        </a>
+        <nav class="nav" id="nav" aria-label="Menu utama">
+          <a class="nav-asesmen" href="/asesmen.html" aria-current={activeNav === "asesmen" ? "page" : undefined}>Asesmen gratis</a>
+          <a href="/tf.html" aria-current={activeNav === "produk" ? "page" : undefined}>Produk</a>
+          <a href={`${homePrefix}#cara-beli`}>Cara beli</a>
+          <a href={`${homePrefix}#testimoni`}>Testimoni</a>
+          <a href={`${homePrefix}#gabung`}>Gabung</a>
+        </nav>
+        <a class="btn btn--blue btn--sm header-cta" href="/asesmen.html"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Asesmen gratis</a>
+        <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Buka menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <h3>Ingat Sehat</h3>
+            <p>Website ini dikelola oleh Mitra Independen 4Life dan bukan situs resmi PT 4Life Indonesia Trading. Kami bagian dari komunitas pendukung Winners Academy.</p>
+          </div>
+          <div>
+            <h3>Tautan</h3>
+            <ul>
+              <li><a href="/tf.html">Produk</a></li>
+              <li><a href="https://indonesia.4life.com/leogito/shop/all" target="_blank" rel="noopener">Toko online resmi</a></li>
+              <li><a href="https://indonesia.4life.com/corp/page/26/LoyaltyProgram" target="_blank" rel="noopener">Program Loyalitas</a></li>
+              <li><a href="https://cekbpom.pom.go.id" target="_blank" rel="noopener">Cek BPOM</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Hubungi kami</h3>
+            <ul>
+              <li><a href="https://wa.me/6287718227922"><i class="fab fa-whatsapp" aria-hidden="true"></i>+62 877-1822-7922</a></li>
+              <li><a href="tel:+6287718227922"><i class="fas fa-phone" aria-hidden="true"></i>+62 877-1822-7922</a></li>
+              <li><a href="https://www.youtube.com/@infoingatsehat" target="_blank" rel="noopener"><i class="fab fa-youtube" aria-hidden="true"></i>Info Ingat Sehat</a></li>
+              <li><a href="mailto:info@ingatsehat.my.id"><i class="far fa-envelope" aria-hidden="true"></i>info@ingatsehat.my.id</a></li>
+              <li><a href="https://www.google.com/maps/search/?api=1&query=Cyber+2+Building+Jakarta" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Cyber 2 Building, Jakarta</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Konsultasi gratis</h3>
+            <p>Isi nama dan nomor WhatsApp, kami yang menghubungi Anda.</p>
+            <a class="btn btn--wa btn--sm" href={`${homePrefix}#konsultasi`}><i class="fas fa-pen" aria-hidden="true"></i> Isi formulir</a>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <p>Produk suplemen kesehatan bukan obat dan tidak dimaksudkan untuk mendiagnosis, mengobati, menyembuhkan, atau mencegah penyakit. Konsultasikan dengan dokter jika Anda sedang hamil, menyusui, atau memiliki kondisi medis tertentu. 4Life® dan Transfer Factor® adalah merek dagang milik 4Life Trademarks, LLC.</p>
+          <p>Website ini menggunakan cookie dari Google Analytics untuk memahami jumlah dan asal pengunjung secara anonim. Nama dan nomor WhatsApp yang Anda kirim lewat formulir hanya dipakai untuk menghubungi Anda. Percakapan dengan asisten chat Yemima diproses oleh layanan AI Google Gemini dan dicatat untuk meningkatkan layanan, jadi mohon tidak menuliskan data sensitif. Kami tidak menjual data Anda.</p>
+          <p>&copy; 2026 Ingat Sehat</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="float-menu" id="float-menu">
+      <button type="button" class="float-toggle" id="float-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="float-menu" aria-label="Buka menu bantuan">
+        <i class="fas fa-comment-dots float-toggle-open" aria-hidden="true"></i>
+        <i class="fas fa-times float-toggle-close" aria-hidden="true"></i>
+      </button>
+      <a href="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" class="wa-float" target="_blank" rel="noopener" aria-label="Chat via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      <button type="button" class="yemima-launch" data-wa="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" aria-label="Chat dengan Yemima, asisten AI"><i class="fas fa-comment-dots" aria-hidden="true"></i> <span class="yemima-label">Tanya Yemima</span></button>
+    </div>
+    <div id="yemima-chat"></div>
+
+    <script is:inline src="/js/site.js"></script>
+    <script is:inline src="/js/yemima.js" defer></script>
+    {extraScripts.map((src) => <script is:inline src={src} defer></script>)}
+  </body>
+</html>
