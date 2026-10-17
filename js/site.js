@@ -252,4 +252,29 @@
       if (e.target.tagName === "A") { nav.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); }
     });
   }
+
+  // 5. Menu bantuan mengambang: satu tombol membuka WhatsApp + Yemima
+  var floatMenu = document.getElementById("float-menu");
+  var floatToggle = document.getElementById("float-toggle");
+  if (floatMenu && floatToggle) {
+    var setFloatOpen = function (open) {
+      floatMenu.classList.toggle("is-open", open);
+      floatToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      floatToggle.setAttribute("aria-label", open ? "Tutup menu bantuan" : "Buka menu bantuan");
+    };
+    floatToggle.addEventListener("click", function () {
+      setFloatOpen(!floatMenu.classList.contains("is-open"));
+    });
+    // Pilih WhatsApp atau Yemima langsung menutup pasangan tombol ini lagi
+    var waLink = floatMenu.querySelector(".wa-float");
+    var yemimaBtn = floatMenu.querySelector(".yemima-launch");
+    if (waLink) waLink.addEventListener("click", function () { setFloatOpen(false); });
+    if (yemimaBtn) yemimaBtn.addEventListener("click", function () { setFloatOpen(false); });
+    document.addEventListener("click", function (e) {
+      if (floatMenu.classList.contains("is-open") && !floatMenu.contains(e.target)) setFloatOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setFloatOpen(false);
+    });
+  }
 })();

@@ -501,8 +501,14 @@
       </div>
     </footer>
 
-    <a href="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" class="wa-float" aria-label="Chat via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-    <button type="button" class="yemima-launch" data-wa="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" aria-label="Chat dengan Yemima, asisten AI"><i class="fas fa-comment-dots" aria-hidden="true"></i> <span class="yemima-label">Tanya Yemima</span></button>
+    <div class="float-menu" id="float-menu">
+      <button type="button" class="float-toggle" id="float-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="float-menu" aria-label="Buka menu bantuan">
+        <i class="fas fa-comment-dots float-toggle-open" aria-hidden="true"></i>
+        <i class="fas fa-times float-toggle-close" aria-hidden="true"></i>
+      </button>
+      <a href="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" class="wa-float" target="_blank" rel="noopener" aria-label="Chat via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      <button type="button" class="yemima-launch" data-wa="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20konsultasi%20produk%204Life" aria-label="Chat dengan Yemima, asisten AI"><i class="fas fa-comment-dots" aria-hidden="true"></i> <span class="yemima-label">Tanya Yemima</span></button>
+    </div>
     <div id="yemima-chat"></div>
 
     <script src="js/site.js"></script>

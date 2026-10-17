@@ -35,13 +35,36 @@
 
   var loaded = false;
 
+  function jendelaTerbuka() {
+    var win = document.querySelector("#yemima-chat .chat-window");
+    return !!(win && win.offsetParent !== null);
+  }
+
+  var tombolTutup = null;
+  function tampilkanTombolTutup() {
+    if (tombolTutup) { tombolTutup.hidden = false; return; }
+    var wrapper = document.querySelector("#yemima-chat .chat-window-wrapper");
+    if (!wrapper) return;
+    tombolTutup = document.createElement("button");
+    tombolTutup.type = "button";
+    tombolTutup.className = "yemima-close";
+    tombolTutup.setAttribute("aria-label", "Tutup chat Yemima");
+    tombolTutup.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+    tombolTutup.addEventListener("click", function () {
+      var toggle = document.querySelector("#yemima-chat .chat-window-toggle");
+      if (toggle && jendelaTerbuka()) toggle.click();
+      tombolTutup.hidden = true;
+    });
+    wrapper.appendChild(tombolTutup);
+  }
+
   function bukaJendela() {
     var tries = 0;
     (function coba() {
       var toggle = document.querySelector("#yemima-chat .chat-window-toggle");
       if (toggle) {
-        var win = document.querySelector("#yemima-chat .chat-window");
-        if (!win || win.offsetParent === null) toggle.click();
+        if (!jendelaTerbuka()) toggle.click();
+        tampilkanTombolTutup();
         return;
       }
       if (++tries < 40) setTimeout(coba, 50);
@@ -88,7 +111,9 @@
       });
       loaded = true;
       loading = false;
-      btn.hidden = true;
+      btn.disabled = false;
+      btn.classList.remove("is-loading");
+      btn.querySelector(".yemima-label").textContent = "Tanya Yemima";
       // Header biru disembunyikan begitu Kakak mulai chat, supaya ruang pesan lebih luas.
       var wadah = document.getElementById("yemima-chat");
       var pantau = new MutationObserver(function () {
