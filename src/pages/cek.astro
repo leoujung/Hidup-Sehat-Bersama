@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title={"Cek 7 Pilar Hidup Sehat (1 Menit) | Ingat Sehat"}
+  description={"Cek gratis 7 pilar gaya hidup sehat Anda dalam 1 menit: olahraga, nutrisi, istirahat, stres, polusi, pestisida, dan pengolahan makanan. Dapat tips praktis sesuai hasil Anda."}
+  ogDescription={"Seberapa sehat gaya hidup Anda? Jawab 7 pertanyaan singkat dan dapatkan tips praktis sesuai hasil Anda."}
+  path={"/cek.html"}
+  extraScripts={["/js/cek.js"]}
+>
+  <section class="page-intro cek-intro">
+          <div class="wrap">
+            <div>
+              <h1>Seberapa sehat gaya hidup Anda?</h1>
+              <p>Sistem imun bekerja seperti pasukan pertahanan tubuh, dan kebiasaan sehari-hari ikut menentukan seberapa baik pasukan ini bekerja. Cek 7 pilar hidup sehat Anda dalam 1 menit, lalu dapatkan tips praktis sesuai hasil Anda. Gratis, tanpa daftar.</p>
+              <ul class="hero-proof">
+                <li><i class="fas fa-stopwatch" aria-hidden="true"></i> 7 pertanyaan, ±1 menit</li>
+                <li><i class="fas fa-user-shield" aria-hidden="true"></i> Jawaban tidak disimpan</li>
+              </ul>
+              <p class="cek-link">Mau hasil lebih lengkap dengan saran produk? <a href="asesmen.html">Asesmen Hidup Sehat (±4 menit)</a></p>
+            </div>
+          </div>
+        </section>
+  
+        <section class="section section--tight" id="cek">
+          <div class="wrap">
+            <form class="cek-card" id="cek-form" novalidate>
+              <div class="cek-progress" aria-hidden="true"><span style="width:14.3%"></span></div>
+              <p class="cek-status small muted" role="status" aria-live="polite">Pertanyaan 1 dari 7</p>
+              <fieldset class="cek-step" data-step="1">
+                <legend><span class="cek-num"><i class="fas fa-running" aria-hidden="true"></i> Pilar 1 dari 7 · Olahraga</span>Saya bergerak aktif atau berolahraga minimal 30 menit, 5 hari dalam seminggu.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="olahraga" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="olahraga" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="olahraga" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="cek-step" data-step="2" hidden>
+                <legend><span class="cek-num"><i class="fas fa-carrot" aria-hidden="true"></i> Pilar 2 dari 7 · Makan bernutrisi</span>Setiap hari saya makan sayur, buah, dan protein dengan porsi seimbang.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="nutrisi" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="nutrisi" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="nutrisi" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="cek-step" data-step="3" hidden>
+                <legend><span class="cek-num"><i class="fas fa-bed" aria-hidden="true"></i> Pilar 3 dari 7 · Istirahat cukup</span>Saya tidur 7 sampai 9 jam semalam dan bangun dengan badan segar.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="istirahat" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="istirahat" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="istirahat" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="cek-step" data-step="4" hidden>
+                <legend><span class="cek-num"><i class="fas fa-spa" aria-hidden="true"></i> Pilar 4 dari 7 · Kelola stres</span>Saya bisa mengelola stres sehari-hari dengan tenang.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="stres" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="stres" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="stres" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="cek-step" data-step="5" hidden>
+                <legend><span class="cek-num"><i class="fas fa-wind" aria-hidden="true"></i> Pilar 5 dari 7 · Udara & air bersih</span>Saya jarang terpapar polusi (asap kendaraan, asap rokok) dan air minum saya bersih.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="polusi" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="polusi" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="polusi" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="cek-step" data-step="6" hidden>
+                <legend><span class="cek-num"><i class="fas fa-apple-alt" aria-hidden="true"></i> Pilar 6 dari 7 · Bebas pestisida</span>Sayur dan buah yang saya makan organik, atau selalu saya cuci bersih di air mengalir.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="pestisida" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="pestisida" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="pestisida" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="cek-step" data-step="7" hidden>
+                <legend><span class="cek-num"><i class="fas fa-utensils" aria-hidden="true"></i> Pilar 7 dari 7 · Olahan tanpa residu</span>Makanan saya diolah dengan cara sehat: minyak tidak dipakai berulang, tidak gosong, dan peralatan bersih.</legend>
+                <div class="cek-opts">
+                    <label class="cek-opt"><input type="radio" name="olahan" value="2" required /><span>Selalu</span></label>
+                    <label class="cek-opt"><input type="radio" name="olahan" value="1" required /><span>Kadang-kadang</span></label>
+                    <label class="cek-opt"><input type="radio" name="olahan" value="0" required /><span>Jarang</span></label>
+                </div>
+              </fieldset>
+              <div class="cek-nav">
+                <button type="button" class="btn btn--ghost btn--sm" data-cek="back" hidden><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali</button>
+                <button type="button" class="btn btn--blue btn--sm" data-cek="next" disabled>Lanjut <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <noscript><p class="small">Aktifkan JavaScript untuk melihat hasil cek, atau <a href="https://wa.me/6287718227922?text=Halo%2C%20saya%20mau%20cek%20gaya%20hidup%20sehat">tanya kami lewat WhatsApp</a>.</p></noscript>
+            </form>
+  
+            <div class="cek-hasil" id="hasil" hidden tabindex="-1">
+              <div class="cek-card">
+                <p class="eyebrow-cek">Hasil cek Anda</p>
+                <h2 id="hasil-judul">…</h2>
+                <p id="hasil-ringkas" class="muted"></p>
+                <ul class="pilar-list" id="pilar-list"></ul>
+                <button type="button" class="btn btn--ghost btn--sm" data-cek="ulang"><i class="fas fa-redo" aria-hidden="true"></i> Ulangi cek</button>
+                <p class="cek-link">Ingin insight lebih detail (pola makan, tidur, aktivitas) dan saran produk sesuai kebutuhan? <a href="asesmen.html">Ikuti Asesmen Hidup Sehat</a></p>
+              </div>
+  
+              <div class="cek-card" id="tips-box">
+                <h3>Tips praktis untuk Anda</h3>
+                <p class="muted small">Fokus dulu pada pilar yang paling perlu perhatian. Perubahan kecil yang konsisten lebih berarti daripada perubahan besar yang cepat berhenti.</p>
+                <div id="tips-list"></div>
+              </div>
+  
+              <div class="cek-card cek-panduan" id="panduan">
+                <div class="panduan-head">
+                  <span class="panduan-ikon" aria-hidden="true"><i class="fas fa-file-pdf"></i></span>
+                  <div>
+                    <h3>Gratis: Panduan 7 Pilar Hidup Sehat</h3>
+                    <p class="muted small">PDF 11 halaman: tips tiap pilar, tantangan 7 hari, dan pelacak 2 minggu. Isi nama dan WhatsApp, panduan langsung bisa diunduh, dan kami bantu membahas hasil cek Anda.</p>
+                  </div>
+                </div>
+                <form class="panduan-form" data-endpoint="https://n8n-n0ft.srv1964287.hstgr.cloud/webhook/ingatsehat-lead" novalidate>
+                  <div class="lead-field">
+                    <label for="pd-nama">Nama</label>
+                    <input id="pd-nama" name="nama" type="text" autocomplete="given-name" maxlength="80" required />
+                  </div>
+                  <div class="lead-field">
+                    <label for="pd-wa">Nomor WhatsApp</label>
+                    <input id="pd-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="0812-3456-7890" required />
+                  </div>
+                  <div class="hp" aria-hidden="true">
+                    <label for="pd-website">Website</label>
+                    <input id="pd-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <button type="submit" class="btn btn--blue"><i class="fas fa-download" aria-hidden="true"></i> Kirim &amp; unduh panduan</button>
+                  <p class="lead-consent">Dengan mengirim, Anda setuju dihubungi lewat WhatsApp untuk membahas hasil cek. Data hanya dipakai untuk membalas Anda dan tidak kami jual.</p>
+                  <p class="lead-status" role="status" aria-live="polite"></p>
+                </form>
+                <div class="panduan-done" hidden tabindex="-1">
+                  <i class="fas fa-check-circle done-icon" aria-hidden="true"></i>
+                  <h3 class="panduan-done-judul">Panduan siap diunduh</h3>
+                  <p class="muted panduan-done-teks">Kami akan menghubungi Anda lewat WhatsApp untuk membahas hasil cek.</p>
+                  <a class="btn btn--blue" href="files/panduan-7-pilar.pdf" download="Panduan-7-Pilar-Hidup-Sehat.pdf" data-panduan="unduh"><i class="fas fa-download" aria-hidden="true"></i> Unduh Panduan (PDF)</a>
+                </div>
+              </div>
+  
+              <div class="cek-card cek-peran">
+                <h3>Lalu, di mana peran suplemen?</h3>
+                <p>Ketujuh pilar di atas adalah fondasinya. Sebagai <strong>pelengkap</strong> gaya hidup sehat, banyak keluarga memilih suplemen kesehatan untuk membantu memelihara daya tahan tubuh. Suplemen bukan obat dan bukan pengganti makan bergizi, istirahat, dan olahraga.</p>
+                <div class="cek-reko">
+                  <article class="cek-reko-item">
+                    <h4>4Life Transfer Factor® Tri-Factor™ Formula</h4>
+                    <p class="small muted">Untuk mulai. Membantu mendukung dan menjaga keseimbangan sistem pertahanan tubuh. BPOM SI263076871.</p>
+                    <a class="btn btn--blue btn--sm" href="https://indonesia.4life.com/leogito/product/transfer-factor-tri-factor/95" target="_blank" rel="noopener" data-produk="Tri-Factor (cek 7 pilar)"><i class="fas fa-shopping-bag" aria-hidden="true"></i> Lihat harga &amp; beli</a>
+                  </article>
+                  <article class="cek-reko-item">
+                    <h4>4Life Transfer Factor® Plus Tri-Factor™ Formula</h4>
+                    <p class="small muted">Paling lengkap: Tri-Factor Formula ditambah Cordyvant™ untuk membantu memelihara kesehatan tubuh. BPOM SI253073521.</p>
+                    <a class="btn btn--blue btn--sm" href="https://indonesia.4life.com/leogito/product/transfer-factor-plus-tri-factor/89" target="_blank" rel="noopener" data-produk="Plus (cek 7 pilar)"><i class="fas fa-shopping-bag" aria-hidden="true"></i> Lihat harga &amp; beli</a>
+                  </article>
+                </div>
+                <p class="small">Ingin rutin atau untuk sekeluarga? Lihat <a href="tf.html#paket">paket hemat</a> dan <a href="tf.html#member">Member Loyalitas</a> (poin 15% dari setiap order).</p>
+                <div class="hero-actions">
+                  <a class="btn btn--wa" id="wa-hasil" href="https://wa.me/6287718227922?text=Halo%2C%20saya%20sudah%20cek%207%20pilar%20hidup%20sehat"><i class="fab fa-whatsapp" aria-hidden="true"></i> Diskusikan hasil saya</a>
+                  <button type="button" class="btn btn--ghost" data-yemima="finder"><i class="fas fa-comment-dots" aria-hidden="true"></i> Bantu pilihkan produk</button>
+                </div>
+                <p class="small muted">Hasil cek ini alat bantu refleksi gaya hidup, bukan diagnosis. Bila Anda punya kondisi medis, sedang berobat, hamil, atau menyusui, konsultasikan dulu dengan dokter sebelum mengonsumsi suplemen apa pun.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+</Layout>
