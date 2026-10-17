@@ -263,6 +263,13 @@
       floatToggle.setAttribute("aria-label", open ? "Tutup menu bantuan" : "Buka menu bantuan");
     };
     floatToggle.addEventListener("click", function () {
+      // Kalau kotak chat Yemima lagi tampil, tombol ini menutupnya dulu (bukan buka submenu WA/Yemima)
+      var jendela = document.querySelector("#yemima-chat .chat-window");
+      if (jendela && jendela.offsetParent !== null) {
+        var tombolTutup = document.querySelector(".yemima-close");
+        if (tombolTutup) tombolTutup.click();
+        return;
+      }
       setFloatOpen(!floatMenu.classList.contains("is-open"));
     });
     // Pilih WhatsApp atau Yemima langsung menutup pasangan tombol ini lagi
